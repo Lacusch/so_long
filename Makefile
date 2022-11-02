@@ -24,5 +24,4 @@ test:
 	gcc main.c -o test ./MLX42/libmlx42.a -lglfw -L "/Users/slaszlo-/.brew/opt/glfw/lib/"
 tclean:
 	rm -rf test
-
-.PHONY all clean fclean test tclean
+.PHONY: all clean fclean test tclean
