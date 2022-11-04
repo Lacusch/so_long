@@ -20,8 +20,9 @@ clean:
 fclean: clean
 	make fclean -C ./libft
 	make fclean -C ./MLX42
+re: fclean all
 test:
 	gcc main.c -o test ./MLX42/libmlx42.a -lglfw -L "/Users/slaszlo-/.brew/opt/glfw/lib/"
 tclean:
 	rm -rf test
-.PHONY: all clean fclean test tclean
+.PHONY: all clean fclean test tclean re
