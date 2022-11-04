@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra - Werror
 NAME = so_long
 LIBFT = libft/libft.a
 MLX42 = MLX42/libmlx42.a
-
+GLFW = -lglfw -L "/Users/slaszlo-/.brew/opt/glfw/lib/"
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(MLX42)
@@ -22,7 +22,7 @@ fclean: clean
 	make fclean -C ./MLX42
 re: fclean all
 test:
-	gcc main.c -o test ./MLX42/libmlx42.a -lglfw -L "/Users/slaszlo-/.brew/opt/glfw/lib/"
+	gcc main.c ./MLX42/libmlx42.a $(GLFW)
 tclean:
 	rm -rf test
 .PHONY: all clean fclean test tclean re
