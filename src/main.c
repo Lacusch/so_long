@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/05 14:37:07 by slaszlo-         ###   ########.fr       */
+/*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
+/*   Updated: 2022/11/05 14:47:15 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
+#include "../includes/so_long.h"
+#include "../libft/libft.h"
 
-// Structs
-
-typedef struct s_map
+int	main(int argc, char *argv[])
 {
-	int height;
-	int width;
-	int player_x;
-	int player_y;
-	char **map_data;
-	int steps;
-} t_map;
+	t_map	map;
 
-// map.c they leak like hell, I'll debug later
-
-int ft_line(char *argv[]);
-char **ft_get_map(char *argv[]);
-void ft_print_map (char **map, int lines);
-void ft_free_map (char **map, int lines);
-
+	map.map_data = ft_get_map(argv);
+	return (0);
+}

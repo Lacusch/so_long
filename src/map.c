@@ -6,46 +6,47 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:01 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/05 13:12:23 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/05 14:49:47 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 
-void ft_free_map(char **map, int lines)
+void	ft_free_map(char **map, int lines)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	while (i != 6)
+	while (i != (lines + 1))
 	{
 		free(map[i]);
-		// ft_printf("i is:%i\n", i);
 		i++;
 	}
 	free (map);
 }
-void ft_print_map (char **map, int lines)
+
+void	ft_print_map(char **map, int lines)
 {
-	int i;
-	char **tmp;
+	int		i;
+	char	**tmp;
+
 	tmp = map;
 	i = 1;
 	while (i < (lines + 1))
 	{
-	ft_printf("Line is:%s\n", tmp[i]);
-	i++;
+		ft_printf("Line is:%s\n", tmp[i]);
+		i++;
 	}
 }
 
-char **ft_get_map(char *argv[])
+char	**ft_get_map(char *argv[])
 {
-	char **str_array;
-	int lines;
-	char *tmp;
-	int fd;
-	int i;
+	char	**str_array;
+	int		lines;
+	char	*tmp;
+	int		fd;
+	int		i;
 
 	lines = ft_line(argv);
 	str_array = malloc((lines + 1) * sizeof(char *));
@@ -66,11 +67,12 @@ char **ft_get_map(char *argv[])
 	}
 	return (str_array);
 }
-int ft_line(char *argv[])
+
+int	ft_line(char *argv[])
 {
-	int i;
-	char *tmp;
-	int fd;
+	int		i;
+	char	*tmp;
+	int		fd;
 
 	i = 0;
 	fd = open(argv[1], O_RDONLY);
@@ -82,7 +84,6 @@ int ft_line(char *argv[])
 	tmp = get_next_line(fd);
 	while (tmp != NULL)
 	{
-	// ft_printf("Line is:%s\n", tmp);
 	tmp = get_next_line(fd);
 	i++;
 	}
