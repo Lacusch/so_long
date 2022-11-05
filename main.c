@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 00:40:08 by W2Wizard          #+#    #+#             */
-/*   Updated: 2022/11/04 11:42:10 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/05 11:27:31 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	hook(void *param)
 	if (mlx_is_key_down(mlx, MLX_KEY_Q))
 		mlx_close_window(mlx);
 	if (mlx_is_key_down(mlx, MLX_KEY_UP))
-		g_img->instances[0].y -= 5;
+		g_img->instances[0].y -= 15;
 	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
-		g_img->instances[0].y += 5;
+		g_img->instances[0].y += 15;
 	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
-		g_img->instances[0].x -= 5;
+		g_img->instances[0].x -= 15;
 	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
-		g_img->instances[0].x += 5;
+		g_img->instances[0].x += 15;
 }
 
 int32_t	main(void)
