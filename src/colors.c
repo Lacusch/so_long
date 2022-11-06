@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 12:14:30 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/06 12:19:13 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/06 12:49:21 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	get_b(int rgba)
 
 // Get the alpha channel.
 // Move 0 bytes to the right and mask out the first byte.
-
 int	get_a(int rgba)
 {
 	return (rgba & 0xFF);

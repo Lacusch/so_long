@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:01 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/05 14:49:47 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/06 12:14:16 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ char	**ft_get_map(char *argv[])
 	int		fd;
 	int		i;
 
-	lines = ft_line(argv);
-	str_array = malloc((lines + 1) * sizeof(char *));
 	fd = open(argv[1], O_RDONLY);
-	i = 1;
 	if (fd == -1)
 	{
 		ft_printf("the file desriptor is:%i\n", fd);
 		return (NULL);
 	}
+	lines = ft_line(argv);
+	str_array = malloc((lines + 1) * sizeof(char *));
+	i = 1;
 	tmp = get_next_line(fd);
 	while (tmp != NULL)
 	{

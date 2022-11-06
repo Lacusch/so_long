@@ -22,7 +22,7 @@ fclean: clean
 	make fclean -C ./MLX42
 re: fclean all
 test:
-	gcc main.c ./MLX42/libmlx42.a $(GLFW)
+	gcc main.c src/map.c libft/libft.a ./MLX42/libmlx42.a $(GLFW)
 tclean:
 	rm -rf test
 .PHONY: all clean fclean test tclean re
