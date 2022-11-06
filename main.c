@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 00:40:08 by W2Wizard          #+#    #+#             */
-/*   Updated: 2022/11/06 13:12:41 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/06 16:43:12 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,26 @@ void	hook(void *param)
 		g_img->instances[0].x += MOVE;
 		ft_printf("x is :%i, y is:%i\n", g_img->instances->x, g_img->instances->y);
 	}
-	
+		if (mlx_is_key_down(mlx, MLX_KEY_W))
+	{
+		g_img->instances[0].y -= MOVE;
+		ft_printf("x is :%i, y is:%i\n", g_img->instances->x, g_img->instances->y);
+	}
+	if (mlx_is_key_down(mlx, MLX_KEY_S))
+	{
+		g_img->instances[0].y += MOVE;
+		ft_printf("x is :%i, y is:%i\n", g_img->instances->x, g_img->instances->y);
+	}
+	if (mlx_is_key_down(mlx, MLX_KEY_A))
+	{
+		g_img->instances[0].x -= MOVE;
+		ft_printf("x is :%i, y is:%i\n", g_img->instances->x, g_img->instances->y);
+	}
+	if (mlx_is_key_down(mlx, MLX_KEY_D))
+	{
+		g_img->instances[0].x += MOVE;
+		ft_printf("x is :%i, y is:%i\n", g_img->instances->x, g_img->instances->y);
+	}
 }
 
 // Bytes Per Pixel. Since each pixel is represented as an integer, it will be four bytes for four channels.
@@ -58,31 +77,30 @@ int32_t	main(int ac, char **argv)
 {
 	t_map map;
 
-    // Init mlx with a canvas size of 256x256 and the ability to resize the window.v
+    // Init mlx with a canvas size of WIDTH, HEIGHT macro and the ability to resize the window.v
     mlx_t* mlx;
 	mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
     if (!mlx) exit(EXIT_FAILURE);
 
-    // Create a 128x128 image.
-    mlx_image_t* img = mlx_new_image(mlx, 50, 50);
+    // Create a 50x50 image.
+	
+    mlx_image_t* blocks;
+	blocks = mlx_new_image(mlx, 50, 50);
+	
+	drawn_block(blocks);
+    mlx_image_to_window(mlx, blocks, 0, 0);
+    mlx_image_to_window(mlx, blocks, 50, 50);
 
-    // Set the channels of each pixel in our image to the maximum byte value of 255. 
-    memset(img->pixels, 255, img->width * img->height * BPP);
-    // Draw the image at coordinate (0, 0).
-    mlx_image_to_window(mlx, img, 0, 0);
-	mlx_image_to_window(mlx, img, 0, 50);
-	mlx_image_to_window(mlx, img, 50, 0);
-	mlx_image_to_window(mlx, img, 50, 50);
-	mlx_image_to_window(mlx, img, 100, 50);
-	mlx_image_to_window(mlx, img, 100, 100);
-	mlx_image_to_window(mlx, img, 50, 100);
 	g_img = mlx_new_image(mlx, 25, 25);
-	memset(g_img->pixels, 123, g_img->width * g_img->height * sizeof(int));
-	mlx_put_pixel(g_img, 1, 1, 0xFF0000FF);
+	// drawn_block(g_img);
+	// memset(g_img->pixels, 123, g_img->width * g_img->height * sizeof(int));
+	drawn_stuff(g_img);
 	mlx_image_to_window(mlx, g_img, 10, 10);
+	// mlx_image_to_window(mlx, coin, 100, 100);
     // Run the main loop and terminate on quit.
 	mlx_loop_hook(mlx, &hook, mlx);
     mlx_loop(mlx);
     mlx_terminate(mlx);
     return (EXIT_SUCCESS);
 }
+
