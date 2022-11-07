@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/06 16:46:45 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:27:49 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_map
 	int		player_y;
 	char	**map_data;
 	int		steps;
+	mlx_t	*mlx;
 }	t_map;
 // map.c they leak like hell, I'll debug later
 
@@ -47,8 +48,9 @@ int		get_a(int rgba);
 
 //drawn.c
 
-void	drawn_stuff(mlx_image_t *image);
+void	drawn_player(mlx_image_t *image);
 void	drawn_block(mlx_image_t *image);
 void	drawn_coin(mlx_image_t *image);
+void	drawn_exit(mlx_image_t *image);
 
 #endif

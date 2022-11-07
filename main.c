@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 00:40:08 by W2Wizard          #+#    #+#             */
-/*   Updated: 2022/11/06 16:43:12 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:32:11 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,26 +75,31 @@ void	hook(void *param)
 #define BPP sizeof(int32_t)
 int32_t	main(int ac, char **argv)
 {
-	t_map map;
-
-    // Init mlx with a canvas size of WIDTH, HEIGHT macro and the ability to resize the window.v
+	t_map *map;
     mlx_t* mlx;
+	mlx_image_t* background;
+    mlx_image_t* blocks;
+	mlx_image_t* coin;
+	mlx_image_t* goal;
 	mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
+
     if (!mlx) exit(EXIT_FAILURE);
 
-    // Create a 50x50 image.
-	
-    mlx_image_t* blocks;
+	background = mlx_new_image(mlx, 500, 500);
+	memset(background->pixels, 255, background->width * background->height * sizeof(int));
+	mlx_image_to_window(mlx, background, 0, 0);
+	goal = mlx_new_image(mlx, 25, 25);
 	blocks = mlx_new_image(mlx, 50, 50);
-	
+	coin = mlx_new_image(mlx, 50, 50);
+	drawn_coin(coin);
 	drawn_block(blocks);
+	drawn_exit(goal);
     mlx_image_to_window(mlx, blocks, 0, 0);
-    mlx_image_to_window(mlx, blocks, 50, 50);
-
+    mlx_image_to_window(mlx, blocks, 0, 50);
+	mlx_image_to_window(mlx, coin, 50, 50);
+	mlx_image_to_window(mlx, goal, 50, 100);
 	g_img = mlx_new_image(mlx, 25, 25);
-	// drawn_block(g_img);
-	// memset(g_img->pixels, 123, g_img->width * g_img->height * sizeof(int));
-	drawn_stuff(g_img);
+	drawn_player(g_img);
 	mlx_image_to_window(mlx, g_img, 10, 10);
 	// mlx_image_to_window(mlx, coin, 100, 100);
     // Run the main loop and terminate on quit.
