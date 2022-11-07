@@ -24,5 +24,5 @@ re: fclean all
 test:
 	gcc -o test.o main.c src/map.c src/colors.c src/drawn.c libft/libft.a ./MLX42/libmlx42.a $(GLFW)
 tclean:
-	rm -rf test
+	rm -rf test.o
 .PHONY: all clean fclean test tclean re
