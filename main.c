@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 00:40:08 by W2Wizard          #+#    #+#             */
-/*   Updated: 2022/11/07 14:12:47 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:29:54 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,16 @@ void	hook(void *param)
 	}
 }
 
-// Bytes Per Pixel. Since each pixel is represented as an integer, it will be four bytes for four channels.
-#define BPP sizeof(int32_t)
 int32_t	main(int ac, char **argv)
 {
 	t_map map;
-    mlx_t* mlx;
+	mlx_t* mlx;
 	mlx_image_t* background;
-    mlx_image_t* blocks;
+	mlx_image_t* blocks;
 	mlx_image_t* coin;
 	mlx_image_t* goal;
 	map.mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
-    if (!mlx) exit(EXIT_FAILURE);
+	if (!map.mlx) exit(EXIT_FAILURE);
 
 	background = mlx_new_image(map.mlx, 500, 500);
 	memset(background->pixels, 255, background->width * background->height * sizeof(int));
