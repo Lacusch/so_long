@@ -4,6 +4,7 @@ NAME = so_long
 LIBFT = libft/libft.a
 MLX42 = MLX42/libmlx42.a
 GLFW = -lglfw -L "/Users/slaszlo-/.brew/opt/glfw/lib/"
+TEST.O = test.o
 all: $(NAME)
 	
 $(NAME): $(LIBFT) $(MLX42)
@@ -21,7 +22,8 @@ fclean: clean
 	make fclean -C ./libft
 	make fclean -C ./MLX42
 re: fclean all
-test:
+test: $(TEST.O)
+$(TEST.O): $(LIBFT) $(MLX42)
 	gcc -o test.o main.c src/map.c src/colors.c src/drawn.c libft/libft.a ./MLX42/libmlx42.a $(GLFW)
 tclean:
 	rm -rf test.o
