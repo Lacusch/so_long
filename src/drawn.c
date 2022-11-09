@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:06:59 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/07 12:31:49 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:02:25 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	drawn_block(mlx_image_t *image)
 		x = 0;
 		while (x < 50)
 		{
-			// mlx_put_pixel(image, x, y, 0x7f11e0);
 			mlx_put_pixel(image, x, y, get_rgba(0, 0, 0, 255));
 			x++;
 		}
@@ -57,14 +56,13 @@ void	drawn_player(mlx_image_t *image)
 		while (x < 25)
 		{
 			mlx_put_pixel(image, x, y, 0x7f11e0);
-			// mlx_put_pixel(image, x, y, get_rgba(0, 0, 0, 255));
 			x++;
 		}
 		y++;
 	}
 }
 
-void drawn_coin(mlx_image_t *image)
+void	drawn_coin(mlx_image_t *image)
 {
 	mlx_image_t	*tmp;
 	int			x;
@@ -85,7 +83,7 @@ void drawn_coin(mlx_image_t *image)
 	}
 }
 
-void drawn_exit(mlx_image_t *image)
+void	drawn_exit(mlx_image_t *image)
 {
 	mlx_image_t	*tmp;
 	int			x;

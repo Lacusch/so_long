@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:01 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/06 12:14:16 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:01:51 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,18 @@ int	ft_line(char *argv[])
 	free(tmp);
 	close(fd);
 	return (i);
+}
+
+void	ft_map_init(t_map *map)
+{
+	t_map	*tmp;
+
+	tmp = map;
+	tmp->height = 0;
+	tmp->width = 0;
+	tmp->player_x = 0;
+	tmp->player_y = 0;
+	tmp->map_data = NULL;
+	tmp->steps = 0;
+	tmp->mlx = NULL;
 }

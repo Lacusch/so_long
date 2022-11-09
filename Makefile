@@ -21,6 +21,10 @@ clean:
 fclean: clean
 	make fclean -C ./libft
 	make fclean -C ./MLX42
+t:
+	rm -rf $(NAME)
+	@gcc -o so_long src/main.c src/map.c src/colors.c src/drawn.c libft/libft.a ./MLX42/libmlx42.a $(GLFW)
+	 ./so_long map/map.ber
 re: fclean all
 test: $(TEST.O)
 $(TEST.O): $(LIBFT) $(MLX42)
