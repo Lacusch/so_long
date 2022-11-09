@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/07 14:09:56 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/09 11:53:29 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_map
 	char	**map_data;
 	int		steps;
 	void	*mlx;
-	mlx_image_t *player;
+	void	*player;
 }	t_map;
 // map.c they leak like hell, I'll debug later
 

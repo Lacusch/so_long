@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 00:40:08 by W2Wizard          #+#    #+#             */
-/*   Updated: 2022/11/07 15:29:54 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:22:27 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 mlx_image_t	*g_img;
 
-void	hook(void *param)
+static void	hook(void *param)
 {
 	mlx_t	*mlx;
 
