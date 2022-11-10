@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:01 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/09 15:01:51 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:02:43 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,9 @@ void	ft_map_init(t_map *map)
 	tmp->map_data = NULL;
 	tmp->steps = 0;
 	tmp->mlx = NULL;
+	tmp->space = NULL;
+	tmp->wall = NULL;
+	tmp->collectable = NULL;
+	tmp->exit = NULL;
+	tmp->player = NULL;
 }

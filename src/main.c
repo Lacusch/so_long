@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/09 16:27:37 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:06:14 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,25 @@ void	hook(void *param)
 int	main(int argc, char *argv[])
 {
 	t_map	*map;
+	int		i;
 
+	i = 1;
 	map = malloc (sizeof(t_map *));
 	ft_map_init(map);
 	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	map->map_data = ft_get_map(argv);
-	ft_drawn_line(map->map_data, map, 1);
-	ft_drawn_line(map->map_data, map, 2);
-	ft_drawn_line(map->map_data, map, 3);
-	ft_drawn_line(map->map_data, map, 4);
-	ft_drawn_line(map->map_data, map, 5);
+	if (map->map_data == NULL)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
+	map->wall = mlx_new_image(map->mlx, 50, 50);
+	drawn_block(map->wall);
+	while (i < 6)
+	{
+	ft_drawn_line(map->map_data, map, i);
+	i++;
+	}
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
 	return (0);
@@ -100,20 +109,14 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 	char	**m_data;
 	t_map * tmp_map;
 	tmp_map = map;
-	mlx_image_t* blocks;
-	blocks = mlx_new_image(map->mlx, 50, 50);
 	m_data = map_data;
 	j = 0;
-	drawn_block(blocks);
 
 	while (m_data[line][j] != '\0')
 	{
 		ft_printf("%c", m_data[line][j]);
 		if (m_data[line][j] == '1')
-		{
-			mlx_image_to_window(map->mlx, blocks, (j * 50), ((line -1) * 50));
-		}
-		
+			mlx_image_to_window(map->mlx, map->wall, (j * 50), ((line -1) * 50));
 		j++;
 	}
 }
