@@ -53,3 +53,5 @@ dkms.conf
 
 # Added by myself:
 .vscode
+so_long
+*.swp
