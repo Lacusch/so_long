@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:01 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/10 15:02:43 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:32:22 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,19 @@ void	ft_map_init(t_map *map)
 	tmp->collectable = NULL;
 	tmp->exit = NULL;
 	tmp->player = NULL;
+}
+
+void ft_elem_init(t_map *map)
+{
+	t_map	*tmp;
+	tmp = map;
+	tmp->space = mlx_new_image(tmp->mlx, 50, 50);
+	ft_memset(tmp->space->pixels, 255, 50 * 50 *(sizeof(int)));
+	tmp->wall = mlx_new_image(tmp->mlx, 50, 50);
+	drawn_block(map->wall);
+	tmp->collectable = mlx_new_image(tmp->mlx, 50, 50);
+	drawn_coin(tmp->collectable);
+	tmp->player = mlx_new_image(tmp->mlx, 25, 25);
+	drawn_player(tmp->player);
+
 }

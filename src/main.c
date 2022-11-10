@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/10 15:06:14 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:53:12 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,33 +48,9 @@ void	hook(void *param)
 		map->steps ++;
 		ft_printf("The number of stepst is:%i\n", map->steps);
 	}
+	if (mlx_is_key_down(map->mlx, MLX_KEY_P))
+		ft_printf("Z data is:%i\n", map->player->instances->z);
 }
-// int	main(int argc, char *argv[])
-// {
-// 	t_map	*map;
-// 	map = malloc (sizeof(t_map *));
-// 	mlx_image_t* background;
-//	mlx_image_t* blocks;
-// 	mlx_image_t* coin;
-// 	mlx_image_t* goal;
-
-// 	ft_map_init(map);
-// 	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
-// 	map->map_data = ft_get_map(argv);
-// 	background = mlx_new_image(map->mlx, 500, 500);
-// 	ft_memset(background->pixels, 255, background->width * background->height * sizeof(int));
-// 	mlx_image_to_window(map->mlx, background, 0, 0);
-// 	goal = mlx_new_image(map->mlx, 25, 25);
-// 	drawn_exit(goal);
-// 	mlx_image_to_window(map->mlx, goal, 0, 0);
-// 	map->player = mlx_new_image(map->mlx, 25, 25);
-// 	drawn_player(map->player);
-// 	mlx_image_to_window(map->mlx, map->player, 50, 50);
-// 	mlx_loop_hook(map->mlx, &hook, map);
-// 	mlx_loop(map->mlx);
-// 	mlx_terminate(map->mlx);
-// 	return (0);
-// }
 
 int	main(int argc, char *argv[])
 {
@@ -84,20 +60,20 @@ int	main(int argc, char *argv[])
 	i = 1;
 	map = malloc (sizeof(t_map *));
 	ft_map_init(map);
-	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	map->map_data = ft_get_map(argv);
 	if (map->map_data == NULL)
 	{
 		ft_printf("Error\n");
 		return (1);
 	}
-	map->wall = mlx_new_image(map->mlx, 50, 50);
-	drawn_block(map->wall);
+	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
+	ft_elem_init(map);
 	while (i < 6)
 	{
 	ft_drawn_line(map->map_data, map, i);
 	i++;
 	}
+	mlx_loop_hook(map->mlx, &hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
 	return (0);
@@ -115,8 +91,16 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 	while (m_data[line][j] != '\0')
 	{
 		ft_printf("%c", m_data[line][j]);
-		if (m_data[line][j] == '1')
+		if (m_data[line][j] == '0')
+			mlx_image_to_window(map->mlx, map->space, (j * 50), ((line -1) * 50));
+		else if (m_data[line][j] == '1')
 			mlx_image_to_window(map->mlx, map->wall, (j * 50), ((line -1) * 50));
+		else if (m_data[line][j] == 'C')
+			mlx_image_to_window(map->mlx, map->collectable, (j * 50), ((line -1) * 50));
+		else if (m_data[line][j] == 'P')
+		{
+			mlx_image_to_window(map->mlx, map->player, (j * 50), ((line -1) * 50));
+		}
 		j++;
 	}
 }

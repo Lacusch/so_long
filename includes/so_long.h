@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/10 15:00:58 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:42:07 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define WIDTH 500
 # define HEIGHT 500
-# define MOVE 5
+# define MOVE 50
 # define SIZE 48
 
 // Structs
@@ -46,6 +46,7 @@ char	**ft_get_map(char *argv[]);
 void	ft_print_map(char **map, int lines);
 void	ft_free_map(char **map, int lines);
 void	ft_map_init(t_map *map);
+void ft_elem_init(t_map *map);
 
 //colors.c
 int		get_rgba(int r, int g, int b, int a);
@@ -60,5 +61,6 @@ void	drawn_player(mlx_image_t *image);
 void	drawn_block(mlx_image_t *image);
 void	drawn_coin(mlx_image_t *image);
 void	drawn_exit(mlx_image_t *image);
+void	drawn_space(mlx_image_t *image);
 
 #endif
