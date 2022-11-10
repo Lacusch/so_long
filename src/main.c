@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/10 15:53:12 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:18:07 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,9 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 		else if (m_data[line][j] == 'C')
 			mlx_image_to_window(map->mlx, map->collectable, (j * 50), ((line -1) * 50));
 		else if (m_data[line][j] == 'P')
-		{
 			mlx_image_to_window(map->mlx, map->player, (j * 50), ((line -1) * 50));
-		}
+		else if (m_data[line][j] == 'E')
+			mlx_image_to_window(map->mlx, map->exit, (j * 50), ((line -1) * 50));
 		j++;
 	}
 }

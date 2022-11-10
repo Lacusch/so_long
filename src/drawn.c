@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:06:59 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/10 15:29:47 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:20:32 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	drawn_player(mlx_image_t *image)
 	x = 0;
 	y = 0;
 	tmp = image;
+	ft_memset(image->pixels, 255, 50 * 50 *(sizeof(int)));
 	while (y < 25)
 	{
 		x = 0;
@@ -94,6 +95,7 @@ void	drawn_exit(mlx_image_t *image)
 	x = 0;
 	y = 0;
 	tmp = image;
+	ft_memset(image->pixels, 255, 50 * 50 *(sizeof(int)));
 	while (y < 25)
 	{
 		x = 0;
@@ -115,6 +117,7 @@ void	drawn_space(mlx_image_t *image)
 	x = 0;
 	y = 0;
 	tmp = image;
+	ft_memset(image->pixels, 255, 50 * 50 *(sizeof(int)));
 	while (y < 50)
 	{
 		x = 0;
