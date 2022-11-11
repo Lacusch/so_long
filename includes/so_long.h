@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/10 15:42:07 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/11 10:29:04 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ int		ft_line(char *argv[]);
 char	**ft_get_map(char *argv[]);
 void	ft_print_map(char **map, int lines);
 void	ft_free_map(char **map, int lines);
-void	ft_map_init(t_map *map);
-void ft_elem_init(t_map *map);
+
 
 //colors.c
 int		get_rgba(int r, int g, int b, int a);
@@ -55,7 +54,12 @@ int		get_g(int rgba);
 int		get_b(int rgba);
 int		get_a(int rgba);
 
-//drawn.c
+//initialise.c
+
+void	ft_map_init(t_map *map);
+void ft_elem_init(t_map *map);
+
+//characters.c
 
 void	drawn_player(mlx_image_t *image);
 void	drawn_block(mlx_image_t *image);

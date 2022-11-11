@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/10 16:26:07 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/11 10:29:47 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,35 @@ void	hook(void *param)
 	{
 		map->player->instances[0].y -= MOVE;
 		map->steps ++;
+		map->player_y = map->player_y + 1;
 		ft_printf("The number of stepst is:%i\n", map->steps);
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
 	{
 		map->player->instances[0].y += MOVE;
 		map->steps ++;
+		map->player_y = map->player_y - 1;
 		ft_printf("The number of stepst is:%i\n", map->steps);
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_LEFT))
 	{
 		map->player->instances[0].x -= MOVE;
 		map->steps ++;
+		map->player_x = map->player_x - 1;
 		ft_printf("The number of stepst is:%i\n", map->steps);
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_RIGHT))
 	{
 		map->player->instances[0].x += MOVE;
 		map->steps ++;
+		map->player_x = map->player_x + 1;
 		ft_printf("The number of stepst is:%i\n", map->steps);
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_P))
-		ft_printf("Z data is:%i\n", map->player->instances->z);
+	{
+		ft_printf("\nZ data is:%i\n", map->player->instances->z);
+		ft_printf("player x is:%i, player y is:%i\n", map->player_x, map->player_y);
+	}
 }
 
 int	main(int argc, char *argv[])
@@ -86,24 +93,27 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 	t_map * tmp_map;
 	tmp_map = map;
 	m_data = map_data;
-	j = 0;
+	j = 1;
 
-	while (m_data[line][j] != '\0')
+	while (m_data[line][j - 1] != '\0')
 	{
 		ft_printf("%c", m_data[line][j]);
 		if (m_data[line][j] == '0')
-			mlx_image_to_window(map->mlx, map->space, (j * 50), ((line -1) * 50));
+			mlx_image_to_window(map->mlx, map->space, ((j -1)  * 50), ((line -1) * 50));
 		else if (m_data[line][j] == '1')
-			mlx_image_to_window(map->mlx, map->wall, (j * 50), ((line -1) * 50));
+			mlx_image_to_window(map->mlx, map->wall, ((j - 1) * 50), ((line -1) * 50));
 		else if (m_data[line][j] == 'C')
-			mlx_image_to_window(map->mlx, map->collectable, (j * 50), ((line -1) * 50));
+			mlx_image_to_window(map->mlx, map->collectable, ((j - 1) * 50), ((line -1) * 50));
 		else if (m_data[line][j] == 'P')
 		{
-			mlx_image_to_window(map->mlx, map->space, (j * 50), ((line -1) * 50));
-			mlx_image_to_window(map->mlx, map->player, (j * 50), ((line -1) * 50));
+			mlx_image_to_window(map->mlx, map->space, ((j - 1) * 50), ((line -1) * 50));
+			mlx_image_to_window(map->mlx, map->player, ((j - 1) * 50), ((line -1) * 50));
+			// ft_printf("\nx is:%i y is:%i\n", j, line);
+			map->player_x = j;
+			map->player_y = line;
 		}
 		else if (m_data[line][j] == 'E')
-			mlx_image_to_window(map->mlx, map->exit, (j * 50), ((line -1) * 50));
+			mlx_image_to_window(map->mlx, map->exit, ((j - 1) * 50), ((line -1) * 50));
 		j++;
 	}
 }
