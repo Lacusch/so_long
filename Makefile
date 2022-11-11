@@ -4,17 +4,20 @@ NAME = so_long
 LIBFT = libft/libft.a
 MLX42 = MLX42/libmlx42.a
 GLFW = -lglfw -L "/Users/slaszlo-/.brew/opt/glfw/lib/"
-TEST.O = test.o
+
 all: $(NAME)
 	
 $(NAME): $(LIBFT) $(MLX42)
-	gcc -o so_long src/characters.c \
+	@echo "compliling $(NAME)"
+	@gcc -o so_long src/characters.c \
 	src/colors.c \
 	src/drawn.c \
 	src/initialise.c \
 	src/main.c \
 	src/map.c \
+	src/parcing.c \
 	libft/libft.a ./MLX42/libmlx42.a $(GLFW)
+	@echo "$(NAME) compliling done"
 $(LIBFT):
 	git submodule update --init --recursive --remote
 	make -C ./libft

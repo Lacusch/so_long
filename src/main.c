@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/11 14:41:54 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:30:16 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,47 @@ void	hook(void *param)
 		mlx_close_window(map->mlx);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_UP))
 	{
+		// if (map->map_data[map->player_x][map->player_y + 1] != 1)
+		if (map->player_y > 1)
+		{
 		map->player->instances[0].y -= MOVE;
-		map->steps ++;
-		map->player_y = map->player_y + 1;
-		ft_printf("The number of stepst is:%i\n", map->steps);
-	}
-	if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
-	{
-		map->player->instances[0].y += MOVE;
 		map->steps ++;
 		map->player_y = map->player_y - 1;
 		ft_printf("The number of stepst is:%i\n", map->steps);
+		}
+		// if (map->player_y == 6)
+		// 	ft_printf("x y is%c\n", map->map_data[1][6]);
+	}
+	if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
+	{
+		if (map->player_y < 5)
+		{
+		map->player->instances[0].y += MOVE;
+		map->steps ++;
+		map->player_y = map->player_y + 1;
+		ft_printf("The number of stepst is:%i\n", map->steps);
+		}
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_LEFT))
 	{
+		if (map->player_x > 1)
+		{
 		map->player->instances[0].x -= MOVE;
 		map->steps ++;
 		map->player_x = map->player_x - 1;
 		ft_printf("The number of stepst is:%i\n", map->steps);
+		}
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_RIGHT))
 	{
+		if (map->map_data[map->player_y][map->player_x + 1] != '1')
+		// if (map->player_x < 13)
+		{
 		map->player->instances[0].x += MOVE;
 		map->steps ++;
 		map->player_x = map->player_x + 1;
 		ft_printf("The number of stepst is:%i\n", map->steps);
+		}
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_P))
 	{
@@ -68,6 +84,7 @@ int	main(int argc, char *argv[])
 	map = malloc (sizeof(t_map *));
 	ft_map_init(map);
 	map->map_data = ft_get_map(argv);
+	ft_get_map_2(argv);
 	if (map->map_data == NULL)
 	{
 		ft_printf("Error\n");
@@ -80,7 +97,6 @@ int	main(int argc, char *argv[])
 	ft_drawn_line(map->map_data, map, i);
 	i++;
 	}
-
 	mlx_loop_hook(map->mlx, &hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
@@ -99,7 +115,8 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 
 	while (m_data[line][j - 1] != '\0')
 	{
-		ft_printf("%c", m_data[line][j - 1]);
+		ft_printf("y:%i x:%i\n",line, j);
+		// ft_printf("%c", m_data[line][j - 1]);
 		if (m_data[line][j - 1] == '0')
 			mlx_image_to_window(map->mlx, map->space, ((j -1)  * 50), ((line -1) * 50));
 		else if (m_data[line][j - 1] == '1')

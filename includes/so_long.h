@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/11 10:29:04 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/11 15:01:21 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,20 @@
 # define SIZE 48
 
 // Structs
-
+/*
+@param height the height of the window
+@param width the width of the window
+@param player_x player x position
+@param player_y player y position
+@param map_data char** for map with the format [y][x]
+@param steps the number of steps taken
+@param mlx pointer to mlx
+@param space image of space
+@param wall image of wall
+@param collectable image of collectable
+@param exit image of exit
+@param player image of player
+*/
 typedef struct s_map
 {
 	int			height;
@@ -66,5 +79,10 @@ void	drawn_block(mlx_image_t *image);
 void	drawn_coin(mlx_image_t *image);
 void	drawn_exit(mlx_image_t *image);
 void	drawn_space(mlx_image_t *image);
+
+//parcing.c
+
+char* ft_read_map(int fd);
+char	**ft_get_map_2(char *argv[]);
 
 #endif
