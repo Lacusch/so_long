@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/11 11:09:54 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:41:54 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	main(int argc, char *argv[])
 	ft_drawn_line(map->map_data, map, i);
 	i++;
 	}
+
 	mlx_loop_hook(map->mlx, &hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
@@ -98,7 +99,7 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 
 	while (m_data[line][j - 1] != '\0')
 	{
-		ft_printf("%c", m_data[line][j]);
+		ft_printf("%c", m_data[line][j - 1]);
 		if (m_data[line][j - 1] == '0')
 			mlx_image_to_window(map->mlx, map->space, ((j -1)  * 50), ((line -1) * 50));
 		else if (m_data[line][j - 1] == '1')
