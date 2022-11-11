@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/11 10:29:47 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/11 11:09:54 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 {
 	int j;
 	char	**m_data;
-	t_map * tmp_map;
+	t_map	*tmp_map;
+
 	tmp_map = map;
 	m_data = map_data;
 	j = 1;
@@ -98,21 +99,20 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 	while (m_data[line][j - 1] != '\0')
 	{
 		ft_printf("%c", m_data[line][j]);
-		if (m_data[line][j] == '0')
+		if (m_data[line][j - 1] == '0')
 			mlx_image_to_window(map->mlx, map->space, ((j -1)  * 50), ((line -1) * 50));
-		else if (m_data[line][j] == '1')
+		else if (m_data[line][j - 1] == '1')
 			mlx_image_to_window(map->mlx, map->wall, ((j - 1) * 50), ((line -1) * 50));
-		else if (m_data[line][j] == 'C')
+		else if (m_data[line][j - 1] == 'C')
 			mlx_image_to_window(map->mlx, map->collectable, ((j - 1) * 50), ((line -1) * 50));
-		else if (m_data[line][j] == 'P')
+		else if (m_data[line][j - 1] == 'P')
 		{
 			mlx_image_to_window(map->mlx, map->space, ((j - 1) * 50), ((line -1) * 50));
 			mlx_image_to_window(map->mlx, map->player, ((j - 1) * 50), ((line -1) * 50));
-			// ft_printf("\nx is:%i y is:%i\n", j, line);
 			map->player_x = j;
 			map->player_y = line;
 		}
-		else if (m_data[line][j] == 'E')
+		else if (m_data[line][j - 1] == 'E')
 			mlx_image_to_window(map->mlx, map->exit, ((j - 1) * 50), ((line -1) * 50));
 		j++;
 	}
