@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 10:47:21 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 11:53:19 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,13 @@ int	main(int argc, char *argv[])
 
 	i = 1;
 	map = malloc (sizeof(t_map *));
-	ft_map_init(map);;
-	// ft_read_line(argv, ft_line_size(argv));
+	ft_map_init(map);
 	map->map_data = ft_get_map(argv);
-	ft_get_map_2(argv);
+	// ft_printf("\nThe big string is\n%s\n\n\n\n", ft_read_line(argv));
+	
+	// char ** split_str = ft_split(ft_read_line(argv), '\n');
+	// ft_printf("\n\n\n\n");
+	// map->map_data = ft_split(ft_read_line(argv, ft_line_size(argv)), '\n');
 	if (map->map_data == NULL)
 	{
 		ft_printf("Error\n");
@@ -116,7 +119,7 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 
 	while (m_data[line][j - 1] != '\0')
 	{
-		ft_printf("y:%i x:%i\n",line, j);
+		ft_printf("y:%i x:%i\n",line, j - 1);
 		// ft_printf("%c", m_data[line][j - 1]);
 		if (m_data[line][j - 1] == '0')
 			mlx_image_to_window(map->mlx, map->space, ((j -1)  * 50), ((line -1) * 50));
