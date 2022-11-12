@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/11 15:01:21 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 10:46:25 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ void	drawn_space(mlx_image_t *image);
 
 //parcing.c
 
-char* ft_read_map(int fd);
+char	*ft_read_map(int fd);
 char	**ft_get_map_2(char *argv[]);
+int		ft_line_size (char *argv[]);
+char*	ft_read_line(char *argv[], int char_read);
 
 #endif
