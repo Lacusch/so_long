@@ -6,20 +6,20 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:25:32 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 12:23:17 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:02:37 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 
-void	ft_map_init(t_map *map)
+void	ft_map_init(t_map *map, char *big_str)
 {
 	t_map	*tmp;
 
 	tmp = map;
-	tmp->height = 0;
-	tmp->width = 0;
+	tmp->height = ft_get_height(big_str)/ ft_get_with(big_str);
+	tmp->width = ft_get_with(big_str);
 	tmp->player_x = 0;
 	tmp->player_y = 0;
 	tmp->map_data = NULL;
@@ -47,4 +47,26 @@ void	ft_elem_init(t_map *map)
 	drawn_player(tmp->player);
 	tmp->exit = mlx_new_image(map->mlx, 50, 50);
 	drawn_exit(tmp->exit);
+}
+
+int ft_get_with(char* big_str)
+{
+	int size;
+
+	size = 0;
+	while (big_str[size] != '\n')
+		size++;
+	return (size);
+}
+
+int ft_get_height(char *big_str)
+{
+	int size;
+
+	size = 0;
+	while (big_str[size] != '\0')
+	{
+		size++;
+	}
+	return (size);
 }

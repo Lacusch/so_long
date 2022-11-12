@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 12:59:18 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:03:10 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 void ft_drawn_line (char **map_data, t_map *map, int line);
 void ft_drawn_map (char **map_data, t_map *map, int line);
-int ft_get_with(char* big_str);
-int ft_get_height(char *big_str);
+
 
 void	hook(void *param)
 {
@@ -86,10 +85,7 @@ int	main(int argc, char *argv[])
 	i = 0;
 	map = malloc (sizeof(t_map *));
 	big_str = ft_read_line(argv);
-	// ft_printf("the with is%i\n the height is%i\n", ft_get_with(big_str), ft_get_height(big_str)/ ft_get_with(big_str));
-	// ft_get_with();
-	// ft_get_height();
-	ft_map_init(map);
+	ft_map_init(map, big_str);
 	map->map_data = ft_split(big_str, '\n');
 	if (map->map_data == NULL)
 	{
@@ -143,27 +139,7 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 	}
 }
 
-int ft_get_with(char* big_str)
-{
-	int size;
 
-	size = 0;
-	while (big_str[size] != '\n')
-		size++;
-	return (size);
-}
-
-int ft_get_height(char *big_str)
-{
-	int size;
-
-	size = 0;
-	while (big_str[size] != '\0')
-	{
-		size++;
-	}
-	return (size);
-}
 void ft_drawn_map (char **map_data, t_map *map, int line)
 {
 

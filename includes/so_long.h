@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 12:46:09 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:01:09 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ int		get_a(int rgba);
 
 //initialise.c
 
-void	ft_map_init(t_map *map);
+void	ft_map_init(t_map *map, char *big_str);
 void ft_elem_init(t_map *map);
-
+int ft_get_with(char* big_str);
+int ft_get_height(char *big_str);
 //characters.c
 
 void	drawn_player(mlx_image_t *image);
