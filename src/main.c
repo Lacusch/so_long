@@ -6,16 +6,16 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 13:12:43 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:36:23 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 
-void ft_drawn_line (char **map_data, t_map *map, int line);
-void ft_drawn_map (char **map_data, t_map *map, int line);
-
+void ft_drawn_line (t_map *map, int line);
+void ft_drawn_map (t_map *map);
+void ft_drawn_player(t_map *map, int line);
 
 void	hook(void *param)
 {
@@ -82,6 +82,7 @@ int	main(int argc, char *argv[])
 	map = malloc (sizeof(t_map *));
 	big_str = ft_read_line(argv);
 	ft_map_init(map, big_str);
+	ft_printf("height is%i\n", map->height);
 	map->map_data = ft_split(big_str, '\n');
 	if (map->map_data == NULL)
 	{
@@ -90,25 +91,21 @@ int	main(int argc, char *argv[])
 	}
 	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	ft_elem_init(map);
-	while (i < 5)
-	{
-	ft_drawn_line(map->map_data, map, i);
-	i++;
-	}
+	ft_drawn_map(map);
 	mlx_loop_hook(map->mlx, &hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
 	return (0);
 }
 
-void ft_drawn_line (char **map_data, t_map *map, int line)
+void ft_drawn_line (t_map *map, int line)
 {
 	int j;
 	char	**m_data;
 	t_map	*tmp_map;
 
 	tmp_map = map;
-	m_data = map_data;
+	m_data = map->map_data;
 	j = 0;
 	
 	ft_printf("%s\n", m_data[line]);
@@ -125,7 +122,6 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 		else if (m_data[line][j] == 'P')
 		{
 			mlx_image_to_window(map->mlx, map->space, ((j) * 50), ((line) * 50));
-			mlx_image_to_window(map->mlx, map->player, ((j) * 50), ((line) * 50));
 			map->player_x = j;
 			map->player_y = line;
 		}
@@ -135,8 +131,38 @@ void ft_drawn_line (char **map_data, t_map *map, int line)
 	}
 }
 
+void ft_drawn_player(t_map *map, int line)
+{	
+	int j;
+	char	**m_data;
+	m_data = map->map_data;
+	j = 0;
 
-void ft_drawn_map (char **map_data, t_map *map, int line)
+	while (m_data[line][j] != '\0')
+	{
+		if (m_data[line][j] == 'P')
+		{
+			mlx_image_to_window(map->mlx, map->player, ((j) * 50), ((line) * 50));
+			map->player_x = j;
+			map->player_y = line;
+		}
+		j++;
+	}
+}
+
+void ft_drawn_map(t_map *map)
 {
-
+	int i;
+	i = 0;
+	while (i < map->height)
+	{
+	ft_drawn_line(map, i);
+	i++;
+	}
+	i = 0;
+	while (i < map->height)
+	{
+	ft_drawn_player(map, i);
+	i++;
+	}
 }
