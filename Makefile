@@ -29,10 +29,12 @@ clean:
 fclean: clean
 	make fclean -C ./libft
 	make fclean -C ./MLX42
-t: tclean $(NAME)
-	 ./so_long map/map.ber
+t:
+	 ./$(NAME) map/map.ber
+t2:
+	./$(NAME) map/big_map.ber
 re: fclean all
-
+tre: tclean $(NAME)
 tclean:
 	rm -rf $(NAME)
 .PHONY: all clean fclean test tclean re
