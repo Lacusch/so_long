@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 14:27:11 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:21:43 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void ft_drawn_line (t_map *map, int line);
 void ft_drawn_map (t_map *map);
 void ft_drawn_player(t_map *map, int line);
+void ft_get_collectable(t_map *map);
 
 void	hook(void *param)
 {
@@ -69,12 +70,14 @@ void	hook(void *param)
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_P))
 	{
-		ft_printf("\nZ data is:%i\n", map->player->instances->z);
-		ft_printf("player x is:%i, player y is:%i\n", map->player_x, map->player_y);
+		// ft_printf("\nZ data is:%i\n", map->player->instances->z);
+		// ft_printf("player x is:%i, player y is:%i\n", map->player_x, map->player_y);
 		if (map->player->instances[0].enabled == false)
 			map->player->instances[0].enabled = true;
 		else
 			map->player->instances[0].enabled = false;
+		ft_get_collectable(map);
+		ft_printf("number of collectables is %i\n",map->coints);
 	}
 }
 
@@ -97,7 +100,8 @@ int	main(int argc, char *argv[])
 	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	ft_elem_init(map);
 	ft_drawn_map(map);
-	ft_printf("number of walls is%i\n", map->wall->count);
+	map->coints =  map->collectable->count;
+	// ft_printf("number of collectables is %i\n",map->coints);
 	mlx_loop_hook(map->mlx, &hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
@@ -171,4 +175,26 @@ void ft_drawn_map(t_map *map)
 	ft_drawn_player(map, i);
 	i++;
 	}
+}
+
+void ft_get_collectable(t_map *map)
+{
+	int i;
+
+	i = 0;
+	while (map->collectable->count > i)
+	{
+		if (map->collectable->instances[i].x == map->player->instances[0].x && map->collectable->instances[i].y == map->player->instances[0].y)
+		{
+			ft_printf("\nGood lokation\n");
+			if (map->collectable->instances[i].enabled == true)
+			{
+			map->coints = map->coints - 1;
+			map->collectable->instances[i].enabled = false;
+			}
+			
+		}
+		i++;
+	}
+	
 }

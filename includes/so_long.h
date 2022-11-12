@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 13:01:09 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 16:15:37 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_map
 	int			player_y;
 	char		**map_data;
 	int			steps;
+	int			coints;
 	void		*mlx;
 	mlx_image_t	*space;
 	mlx_image_t *wall;
