@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 13:36:23 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 13:37:11 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	main(int argc, char *argv[])
 	map = malloc (sizeof(t_map *));
 	big_str = ft_read_line(argv);
 	ft_map_init(map, big_str);
-	ft_printf("height is%i\n", map->height);
 	map->map_data = ft_split(big_str, '\n');
 	if (map->map_data == NULL)
 	{
