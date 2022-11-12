@@ -14,7 +14,6 @@ $(NAME): $(LIBFT) $(MLX42)
 	src/drawn.c \
 	src/initialise.c \
 	src/main.c \
-	src/map.c \
 	src/parcing.c \
 	libft/libft.a ./MLX42/libmlx42.a $(GLFW)
 	@echo "$(NAME) compliling done"

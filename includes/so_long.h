@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 11:53:33 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 12:46:09 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,6 @@ typedef struct s_map
 	mlx_image_t *exit;
 	mlx_image_t	*player;
 }	t_map;
-// map.c they leak like hell, I'll debug later
-
-int		ft_line(char *argv[]);
-char	**ft_get_map(char *argv[]);
-void	ft_print_map(char **map, int lines);
-void	ft_free_map(char **map, int lines);
-
 
 //colors.c
 int		get_rgba(int r, int g, int b, int a);
