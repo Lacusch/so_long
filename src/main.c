@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 13:37:11 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:27:11 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	hook(void *param)
 		mlx_close_window(map->mlx);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_UP))
 	{
-		if (map->player_y != 1)
+		
+		if(map->map_data[map->player_y - 1][map->player_x] != '1')
 		{
 		map->player->instances[0].y -= MOVE;
 		map->steps ++;
@@ -37,7 +38,7 @@ void	hook(void *param)
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
 	{
-		if (map->player_y != map->height - 2)
+		if (map->map_data[map->player_y + 1][map->player_x] != '1')
 		{
 		map->player->instances[0].y += MOVE;
 		map->steps ++;
@@ -47,6 +48,7 @@ void	hook(void *param)
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_LEFT))
 	{
+		if (map->map_data[map->player_y][map->player_x - 1] != '1')
 		if (map->player_x != 1)
 		{
 		map->player->instances[0].x -= MOVE;
@@ -57,7 +59,7 @@ void	hook(void *param)
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_RIGHT))
 	{
-		if (map->player_x < map->width -2)
+		if (map->map_data[map->player_y][map->player_x + 1] != '1')
 		{
 		map->player->instances[0].x += MOVE;
 		map->steps ++;
@@ -69,6 +71,10 @@ void	hook(void *param)
 	{
 		ft_printf("\nZ data is:%i\n", map->player->instances->z);
 		ft_printf("player x is:%i, player y is:%i\n", map->player_x, map->player_y);
+		if (map->player->instances[0].enabled == false)
+			map->player->instances[0].enabled = true;
+		else
+			map->player->instances[0].enabled = false;
 	}
 }
 
@@ -91,6 +97,7 @@ int	main(int argc, char *argv[])
 	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	ft_elem_init(map);
 	ft_drawn_map(map);
+	ft_printf("number of walls is%i\n", map->wall->count);
 	mlx_loop_hook(map->mlx, &hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
