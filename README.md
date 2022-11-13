@@ -17,7 +17,7 @@ Started 2. of November
 	2. ~you should collect collectables~
 	3. ~should exit at exit~
 - Check for a valid map
-	1. Check extention (.bar)
+	1. ~Check extention (.bar)~
 	2. At least 1 Collectable (C) and no more that one player (P) and exit(E)
 	3. Check recktengular map
 	4. Check wall

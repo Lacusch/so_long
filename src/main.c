@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 13:53:35 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:21:48 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ int	main(int argc, char *argv[])
 	big_str = ft_read_line(argv);
 	if (big_str == NULL)
 		return (1);
+	if (ft_check_elem(big_str) == false)
+		return (1);
 	ft_map_init(map, big_str);
 	map->map_data = ft_split(big_str, '\n');
 	if (map->map_data == NULL)
@@ -120,8 +122,7 @@ int	main(int argc, char *argv[])
 	map->mlx = mlx_init(WIDTH, HEIGHT, "MLX42", true);
 	ft_elem_init(map);
 	ft_drawn_map(map);
-	map->coints =  map->collectable->count;
-	// ft_printf("number of collectables is %i\n",map->coints);
+	map->coints = map->collectable->count;
 	mlx_loop_hook(map->mlx, &hook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);

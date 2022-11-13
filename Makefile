@@ -12,6 +12,7 @@ $(NAME): $(LIBFT) $(MLX42)
 	@gcc -o so_long src/characters.c \
 	src/colors.c \
 	src/drawn.c \
+	src/error.c \
 	src/initialise.c \
 	src/main.c \
 	src/parcing.c \

@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 13:07:09 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:07:41 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ int		get_r(int rgba);
 int		get_g(int rgba);
 int		get_b(int rgba);
 int		get_a(int rgba);
+
+//error.c
+
+bool ft_check_elem(char *big_str);
 
 //initialise.c
 
