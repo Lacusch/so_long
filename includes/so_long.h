@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 15:14:55 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:40:44 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ bool	map_incorrect_wall(t_map *map);
 
 //initialise.c
 
-void	ft_map_init(t_map *map, char *big_str);
+void	ft_map_init(t_map *map);
+void	ft_map_dimentions(t_map *map, char *big_str);
 void	ft_elem_init(t_map *map);
 int		ft_get_with(char* big_str);
 int		ft_get_height(char *big_str);

@@ -6,20 +6,20 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:25:32 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 16:15:49 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:41:03 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 
-void	ft_map_init(t_map *map, char *big_str)
+void	ft_map_init(t_map *map)
 {
 	t_map	*tmp;
 
 	tmp = map;
-	tmp->height = ft_get_height(big_str)/ ft_get_with(big_str);
-	tmp->width = ft_get_with(big_str);
+	tmp->height = 0;
+	tmp->width = 0;
 	tmp->player_x = 0;
 	tmp->player_y = 0;
 	tmp->map_data = NULL;
@@ -32,7 +32,14 @@ void	ft_map_init(t_map *map, char *big_str)
 	tmp->exit = NULL;
 	tmp->player = NULL;
 }
+void	ft_map_dimentions(t_map *map, char *big_str)
+{
+	t_map	*tmp;
 
+	tmp = map;
+	tmp->height = ft_get_height(big_str)/ ft_get_with(big_str);
+	tmp->width = ft_get_with(big_str);
+}
 void	ft_elem_init(t_map *map)
 {
 	t_map	*tmp;
