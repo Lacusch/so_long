@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 16:35:37 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 12:11:02 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void	hook(void *param)
 {
 	t_map *map;
 	map = param;
+	ft_get_collectable(map);
+	if (map->map_data[map->player_y][map->player_x ]=='E' && map->coints == 0)
+		mlx_close_window(map->mlx);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(map->mlx);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_Q))
@@ -76,7 +79,7 @@ void	hook(void *param)
 			map->player->instances[0].enabled = true;
 		else
 			map->player->instances[0].enabled = false;
-		ft_get_collectable(map);
+		;
 		ft_printf("number of collectables is %i\n",map->coints);
 		if (map->map_data[map->player_y][map->player_x ]=='E' && map->coints == 0)
 		{
@@ -190,9 +193,9 @@ void ft_get_collectable(t_map *map)
 	{
 		if (map->collectable->instances[i].x == map->player->instances[0].x && map->collectable->instances[i].y == map->player->instances[0].y)
 		{
-			ft_printf("\nGood lokation\n");
 			if (map->collectable->instances[i].enabled == true)
 			{
+			ft_printf("\nGood lokation\n");
 			map->coints = map->coints - 1;
 			map->collectable->instances[i].enabled = false;
 			}
