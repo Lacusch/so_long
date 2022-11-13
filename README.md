@@ -19,8 +19,8 @@ Started 2. of November
 - Check for a valid map
 	1. ~Check extention (.bar)~
 	2. ~At least 1 Collectable (C) and no more that one player (P) and exit(E)~
-	3. Check recktengular map
-	4. Check wall
+	3. ~Check recktengular map~
+	4. ~Check wall~
 	5. ~Empy map~
 	6. ~Different characters~
 	7. Map uncompletable

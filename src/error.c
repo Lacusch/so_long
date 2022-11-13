@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 16:47:54 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 17:01:44 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,18 @@ bool ft_check_map(t_map *map)
 }
 bool map_not_recktangle(t_map *map)
 {
+	int	i;
+
+	i = 0;
+	while (map->map_data[i])
+	{
+		if ((int)ft_strlen(map->map_data[i]) != map->width)
+		{
+			ft_printf("Error\nNot recktengle");
+			return (true);
+		}
+		i++;
+	}
 	return (false);
 }
 bool map_incorrect_wall(t_map *map)
