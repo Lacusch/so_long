@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 12:11:02 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 13:53:35 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,19 @@ int	main(int argc, char *argv[])
 
 	i = 0;
 	map = malloc (sizeof(t_map *));
+	if (argc != 2)
+	{
+		if (argc > 2)
+			ft_printf("Error\nTo many arguments");
+		else 
+			ft_printf("Error\nNot enough arguments");
+		return (1);
+	}
+	if (ft_check_extention(argv[1], ".ber") == false)
+		return (1);
 	big_str = ft_read_line(argv);
+	if (big_str == NULL)
+		return (1);
 	ft_map_init(map, big_str);
 	map->map_data = ft_split(big_str, '\n');
 	if (map->map_data == NULL)

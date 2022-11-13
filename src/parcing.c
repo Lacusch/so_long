@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 11:13:08 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 13:53:12 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int ft_line_size (char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("the file desriptor is:%i\n", fd);
 		free(buff);
 		return (-1);
 	}
@@ -81,17 +80,36 @@ char* ft_read_line(char *argv[])
 	char	*buff;
 	int char_read;
 
+	fd = open(argv[1], O_RDONLY);
 	char_read = ft_line_size(argv);
 	buff = malloc (char_read + 1 * sizeof (char));
-	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		ft_printf("the file desriptor is:%i\n", fd);
+		ft_printf("Error\nEmpy map");
 		free(buff);
 		return (NULL);
 	}
+	
 	read(fd, buff, char_read);
 	close (fd);
 	// ft_printf("the line is:\n%s", buff);
 	return (buff);
+}
+
+bool ft_check_extention(char* argv1, char *extention)
+{
+	int file_lengt;
+	int extention_lenght;
+
+	file_lengt = ft_strlen(argv1);
+	extention_lenght = ft_strlen(extention);
+	while (extention_lenght > 0)
+	{
+		if (argv1[file_lengt--] != extention[extention_lenght--])
+		{
+			ft_printf("Error\nWrong file extension");
+			return (false);
+		}
+	}
+	return (true);
 }
