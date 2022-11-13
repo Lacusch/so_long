@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 15:16:41 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:47:54 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ bool ft_sub_check_elem(int exit, int player, int collectable)
 
 bool ft_check_map(t_map *map)
 {
-	ft_printf("map with is%i map height is%i\n", map->width, map->height);
+	if (map_incorrect_wall(map) == true || map_not_recktangle(map) == true)
+		return (true);
 	return (false);
 }
 bool map_not_recktangle(t_map *map)
@@ -68,5 +69,28 @@ bool map_not_recktangle(t_map *map)
 }
 bool map_incorrect_wall(t_map *map)
 {
+	int i;
+
+	i = 0;
+	while (i < map->width)
+	{
+		if (map->map_data[0][i] != '1' || map->map_data[map->height - 1][i] != '1')
+		{
+			ft_printf("Error\nIncorrect Wall");
+			return (true);
+		}
+		i++;
+	}
+	i = 0;
+	while (map->map_data[i])
+	{
+		if (map->map_data[i][0] != '1' || map->map_data[i][map->width - 1] != '1')
+		{
+			ft_printf("Error\nIncorrect Wall");
+			return (true);
+		}
+		i++;
+	}
+	
 	return (false);
 }
