@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 14:07:41 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:11:57 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define WIDTH 500
 # define HEIGHT 500
 # define MOVE 50
-# define SIZE 48
 
 // Structs
 /*
@@ -63,14 +62,16 @@ int		get_a(int rgba);
 
 //error.c
 
-bool ft_check_elem(char *big_str);
-
+bool	ft_check_elem(char *big_str);
+bool	ft_sub_check_elem(int exit, int player, int collectable);
+bool	ft_check_map(char **map);
+bool	map_not_recktangle(char **map);
 //initialise.c
 
 void	ft_map_init(t_map *map, char *big_str);
-void ft_elem_init(t_map *map);
-int ft_get_with(char* big_str);
-int ft_get_height(char *big_str);
+void	ft_elem_init(t_map *map);
+int		ft_get_with(char* big_str);
+int		ft_get_height(char *big_str);
 //characters.c
 
 void	drawn_player(mlx_image_t *image);
@@ -85,6 +86,6 @@ char	*ft_read_map(int fd);
 char	**ft_get_map_2(char *argv[]);
 int		ft_line_size (char *argv[]);
 char	*ft_read_line(char *argv[]);
-bool ft_check_extention(char* argv1, char *extention);
+bool	ft_check_extention(char* argv1, char *extention);
 
 #endif
