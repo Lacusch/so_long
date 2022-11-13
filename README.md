@@ -24,5 +24,7 @@ Started 2. of November
 	5. ~Empy map~
 	6. ~Different characters~
 	7. Map uncompletable
+		- flood_fill function
+	8. debug leaks and crashes
 - Check for leaks and smooth movements
 - Sometimes it randomly crashes !!!
