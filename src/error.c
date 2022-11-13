@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 15:02:31 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:16:41 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,16 @@ bool ft_sub_check_elem(int exit, int player, int collectable)
 	return (0);
 }
 
-int ft_map_line_size(char **map)
+bool ft_check_map(t_map *map)
 {
-	
-	return (1);
+	ft_printf("map with is%i map height is%i\n", map->width, map->height);
+	return (false);
 }
-bool ft_check_map(char **map)
+bool map_not_recktangle(t_map *map)
 {
 	return (false);
 }
-bool map_not_recktangle(char **map)
-{
-	return (false);
-}
-bool map_incorrect_wall(char **map)
+bool map_incorrect_wall(t_map *map)
 {
 	return (false);
 }

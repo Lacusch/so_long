@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 15:11:57 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:14:55 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ int		get_a(int rgba);
 
 bool	ft_check_elem(char *big_str);
 bool	ft_sub_check_elem(int exit, int player, int collectable);
-bool	ft_check_map(char **map);
-bool	map_not_recktangle(char **map);
+bool	ft_check_map(t_map *map);
+bool	map_not_recktangle(t_map *map);
+bool	map_incorrect_wall(t_map *map);
+
 //initialise.c
 
 void	ft_map_init(t_map *map, char *big_str);

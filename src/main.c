@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 15:11:44 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:14:03 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ int	main(int argc, char *argv[])
 	}
 	ft_map_init(map, big_str);
 	map->map_data = ft_split(big_str, '\n');
-	ft_check_map(map->map_data);
+	//
+	ft_check_map(map);
 	if (map->map_data == NULL)
 	{
 		ft_printf("Error\n");

@@ -25,3 +25,4 @@ Started 2. of November
 	6. ~Different characters~
 	7. Map uncompletable
 - Check for leaks and smooth movements
+- Sometimes it randomly crashes !!!
