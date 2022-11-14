@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:25:32 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 12:58:56 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:09:20 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_map_init(t_map *map)
 	t_map	*tmp;
 
 	tmp = map;
-	map = malloc(sizeof (t_map) + 1);
 	tmp->height = 0;
 	tmp->width = 0;
 	tmp->player_x = 0;

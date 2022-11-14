@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 10:46:11 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 13:12:09 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,12 @@ void	hook(void *param)
 
 int	main(int argc, char *argv[])
 {
-	t_map	*map;
+	t_map	map;
 	int		i;
 	char	*big_str;
 
 	i = 0;
-	map = malloc (sizeof(t_map *));
-	ft_map_init(map);
+	ft_map_init(&map);
 	if (argc != 2)
 	{
 		if (argc > 2)
@@ -111,37 +110,37 @@ int	main(int argc, char *argv[])
 	big_str = ft_read_line(argv);
 	if (big_str == NULL)
 	{	
-		free(map);
+		// free(map);
 		free(big_str);
 		return (1);
 	}
 	if (ft_check_elem(big_str) == false)
 	{
-		free(map);
+		// free(map);
 		free(big_str);
 		return (1);
 	}
-	ft_map_dimentions(map, big_str);
-	map->map_data = ft_split(big_str, '\n');
+	ft_map_dimentions(&map, big_str);
+	map.map_data = ft_split(big_str, '\n');
 	free(big_str);
 	//
-	if (ft_check_map(map) == true)
+	if (ft_check_map(&map) == true)
 	{
-		free(map);
+		// free(map);
 		return (1);
 	}
-	if (map->map_data == NULL)
+	if (map.map_data == NULL)
 	{
 		ft_printf("Error\n");
 		return (1);
 	}
-	map->mlx = mlx_init(map->width * 500, map->height * 500, "MLX42", true);
-	ft_elem_init(map);
-	ft_drawn_map(map);
-	map->coints = map->collectable->count;
-	mlx_loop_hook(map->mlx, &hook, map);
-	mlx_loop(map->mlx);
-	mlx_terminate(map->mlx);
+	map.mlx = mlx_init(map.width * 500, map.height * 500, "MLX42", true);
+	ft_elem_init(&map);
+	ft_drawn_map(&map);
+	map.coints = map.collectable->count;
+	mlx_loop_hook(map.mlx, &hook, &map);
+	mlx_loop(map.mlx);
+	mlx_terminate(map.mlx);
 	return (0);
 }
 
