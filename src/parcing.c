@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 10:38:08 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:06:30 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int ft_line_size (char *argv[])
 	char	*buff;
 	int char_read;
 	char_read = 0;
-	buff = malloc (BUFFER_SIZE + 1 * sizeof (char));
+	buff = malloc ((BUFFER_SIZE + 1) * sizeof (char));
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{

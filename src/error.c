@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 17:01:44 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:01:21 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ bool map_not_recktangle(t_map *map)
 	i = 0;
 	while (map->map_data[i])
 	{
-		if ((int)ft_strlen(map->map_data[i]) != map->width)
+		ft_printf("strlen is%is map with is%i\n", ft_strlen(map->map_data[i]), map->width);
+		if (ft_strlen(map->map_data[i]) != map->width)
 		{
 			ft_printf("Error\nNot recktengle");
 			return (true);
