@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 13:53:12 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:38:08 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ char* ft_read_line(char *argv[])
 
 	fd = open(argv[1], O_RDONLY);
 	char_read = ft_line_size(argv);
+	if (char_read == -1)
+	{
+		close(fd);
+		return (NULL);	
+	}
 	buff = malloc (char_read + 1 * sizeof (char));
 	if (fd == -1)
 	{
@@ -89,7 +94,6 @@ char* ft_read_line(char *argv[])
 		free(buff);
 		return (NULL);
 	}
-	
 	read(fd, buff, char_read);
 	close (fd);
 	// ft_printf("the line is:\n%s", buff);

@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 10:21:22 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:46:11 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int	main(int argc, char *argv[])
 
 	i = 0;
 	map = malloc (sizeof(t_map *));
-	big_str = ft_read_line(argv);
 	ft_map_init(map);
 	if (argc != 2)
 	{
@@ -123,8 +122,8 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	ft_map_dimentions(map, big_str);
-	free(big_str);
 	map->map_data = ft_split(big_str, '\n');
+	free(big_str);
 	//
 	if (ft_check_map(map) == true)
 	{

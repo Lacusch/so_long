@@ -28,6 +28,6 @@ Started 2. of November
   7. Map uncompletable
   - flood_fill function
   - debug leaks and crashes
-
+  - Invalid read /write at big string, debug /rewrite function
 - Check for leaks and smooth movements
 - Sometimes it randomly crashes !!!
