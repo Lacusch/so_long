@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 17:42:46 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:21:22 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ int	main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (1);
 	}
-	map->mlx = mlx_init(map->width * MOVE, map->height * MOVE, "MLX42", true);
+	map->mlx = mlx_init(map->width * 500, map->height * 500, "MLX42", true);
 	ft_elem_init(map);
 	ft_drawn_map(map);
 	map->coints = map->collectable->count;
