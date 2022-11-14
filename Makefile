@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra - Werror
+CFLAGS = -Wall -Wextra - Werror -d
 NAME = so_long
 LIBFT = libft/libft.a
 MLX42 = MLX42/libmlx42.a

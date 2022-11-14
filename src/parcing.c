@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 12:06:30 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:42:04 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,47 @@ int ft_line_size (char *argv[])
 		return (-1);
 	}
 	char_read = read(fd, buff, BUFFER_SIZE);
-	// ft_printf("char read =%i\n", char_read);
+	ft_printf("char read =%i\n", char_read);
 	free (buff);
 	close (fd);
 	return(char_read);
 }
 
 char* ft_read_line(char *argv[])
+{
+	int		fd;
+	char	*buf;
+	int32_t	buflen;
+	char	*line;
+
+	buflen = 1;
+	line = ft_calloc(1, 1);
+	buf = malloc(30 + 1 * sizeof(char));
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		ft_printf("Error\nEmpy map");
+		free(buf);
+		return (NULL);
+	}
+	while (buflen > 0)
+	{
+		buflen = read(fd, buf, 30);
+		if (buflen <= 0)
+			free (buf);
+		if (buflen == 0)
+			return (line);
+		if (buflen < 0)
+			return (NULL);
+		buf[buflen] = '\0';
+		line = ft_strjoin(line, buf);
+	}
+	close (fd);
+	// ft_printf("the line is:\n%s", buff);
+	return (line);
+}
+
+/*
 {
 	int		fd;
 	char	*buff;
@@ -99,6 +133,7 @@ char* ft_read_line(char *argv[])
 	// ft_printf("the line is:\n%s", buff);
 	return (buff);
 }
+ */
 
 bool ft_check_extention(char* argv1, char *extention)
 {
