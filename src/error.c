@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/17 17:27:23 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:34:02 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	fill(char **tab, int height, int width, int x, int y)
 {
 	if (y < 0 || y >= height || x < 0 || x >= width)
 		return ;
-	if (tab[y][x] != '0' && tab[y][x] != 'C' && tab[y][x] != 'P')
+	if (tab[y][x] != '0' && tab[y][x] != 'C' && tab[y][x] != 'P' && tab[y][x] != 'E')
 		return ;
 	tab[y][x] = 'F';
 	fill(tab, height, width, x + 1, y);
