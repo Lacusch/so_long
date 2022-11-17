@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:01 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/12 12:34:47 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:27:37 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	ft_print_map(char **map, int lines)
 	char	**tmp;
 
 	tmp = map;
-	i = 1;
-	while (i < (lines + 1))
+	i = 0;
+	while (i < lines)
 	{
-		ft_printf("Line is:%s\n", tmp[i]);
+		ft_printf("%s\n", tmp[i]);
 		i++;
 	}
 }

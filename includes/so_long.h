@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/13 17:40:44 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:28:36 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ bool	ft_sub_check_elem(int exit, int player, int collectable);
 bool	ft_check_map(t_map *map);
 bool	map_not_recktangle(t_map *map);
 bool	map_incorrect_wall(t_map *map);
+void	flood_fill(t_map *map);
+void	fill(char **tab, int height, int width, int x, int y);
 
 //initialise.c
 
@@ -75,6 +77,14 @@ void	ft_map_dimentions(t_map *map, char *big_str);
 void	ft_elem_init(t_map *map);
 int		ft_get_with(char* big_str);
 int		ft_get_height(char *big_str);
+
+//map.c
+
+void	ft_free_map(char **map, int lines);
+void	ft_print_map(char **map, int lines);
+char	**ft_get_map(char *argv[]);
+int	ft_line(char *argv[]);
+
 //characters.c
 
 void	drawn_player(mlx_image_t *image);
@@ -90,5 +100,8 @@ char	**ft_get_map_2(char *argv[]);
 int		ft_line_size (char *argv[]);
 char	*ft_read_line(char *argv[]);
 bool	ft_check_extention(char* argv1, char *extention);
+
+
+
 
 #endif

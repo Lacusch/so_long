@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 13:12:09 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:29:28 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,13 +122,17 @@ int	main(int argc, char *argv[])
 	}
 	ft_map_dimentions(&map, big_str);
 	map.map_data = ft_split(big_str, '\n');
-	free(big_str);
-	//
+	// free(big_str);
 	if (ft_check_map(&map) == true)
 	{
-		// free(map);
+		free(&map);
 		return (1);
 	}
+	ft_print_map(map.map_data, 5);
+	flood_fill(&map);
+	ft_printf("\n");
+	ft_print_map(map.map_data, 5);
+	ft_printf("map hight (y)is:%i, map witdh(x) is:%i\n", map.height, map.width);
 	if (map.map_data == NULL)
 	{
 		ft_printf("Error\n");

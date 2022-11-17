@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 12:01:21 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:27:23 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,23 @@ bool map_incorrect_wall(t_map *map)
 	}
 	
 	return (false);
+}
+
+
+void	fill(char **tab, int height, int width, int x, int y)
+{
+	if (y < 0 || y >= height || x < 0 || x >= width)
+		return ;
+	if (tab[y][x] != '0' && tab[y][x] != 'C' && tab[y][x] != 'P')
+		return ;
+	tab[y][x] = 'F';
+	fill(tab, height, width, x + 1, y);
+	fill(tab, height, width, x - 1, y);
+	fill(tab, height, width, x, y + 1);
+	fill(tab, height, width, x, y - 1);	
+}
+
+void	flood_fill(t_map *map)
+{
+	fill(map->map_data, map->height, map->width, 1, 1);
 }
