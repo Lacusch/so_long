@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/17 17:32:51 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:53:12 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void hook(void *param)
 			map->player->instances[0].enabled = false;
 		;
 		ft_printf("number of collectables is %i\n", map->coints);
+		ft_printf("player x is:%i y is%i\n", map->player_x, map->player_y);
 		if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
 		{
 			ft_printf("end\n");
@@ -131,7 +132,7 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	ft_print_map(map.map_data, 5);
-	flood_fill(&map);
+	flood_fill(&map, map.player_x, map.player_y);
 	ft_printf("\n");
 	ft_print_map(map.map_data, 5);
 	ft_printf("map hight (y)is:%i, map witdh(x) is:%i\n", map.height, map.width);
@@ -141,7 +142,7 @@ int main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (1);
 	}
-	map.mlx = mlx_init(map.width * 500, map.height * 500, "MLX42", true);
+	map.mlx = mlx_init(map.width * 50, map.height * 50, "MLX42", true);
 	ft_elem_init(&map);
 	ft_drawn_map(&map);
 	map.coints = map.collectable->count;

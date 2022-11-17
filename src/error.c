@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/17 17:34:02 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:46:22 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	fill(char **tab, int height, int width, int x, int y)
 	fill(tab, height, width, x, y - 1);	
 }
 
-void	flood_fill(t_map *map)
+void	flood_fill(t_map *map, int player_x, int player_y)
 {
 	fill(map->map_data, map->height, map->width, 1, 1);
 }

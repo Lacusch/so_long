@@ -26,10 +26,12 @@ Started 2. of November
   5. ~~Empy map~~
   6. ~~Different characters~~
   7. Map uncompletable
-  - flood_fill function
+  - ~~flood_fill function~~
+  - add return to 1 / 1 to flood_fill and print error
+  - set player location sooner in the loop
   - debug leaks and crashes
     + Invalid read /write at big string, debug /rewrite function
 	+ Read returns 0 if we get to the end of file !!!!!!
     + free the malloc with 0 size then free the split
 - Check for leaks and smooth movements
-- Sometimes it randomly crashes !!!
+- ~~Sometimes it randomly crashes !!!~~
