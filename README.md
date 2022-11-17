@@ -30,6 +30,6 @@ Started 2. of November
   - debug leaks and crashes
     + Invalid read /write at big string, debug /rewrite function
 	+ Read returns 0 if we get to the end of file !!!!!!
-
+    + free the malloc with 0 size then free the split
 - Check for leaks and smooth movements
 - Sometimes it randomly crashes !!!
