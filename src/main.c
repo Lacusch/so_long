@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:07:46 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:36:37 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ void hook(void *param)
 	{
 		// ft_printf("\nZ data is:%i\n", map->player->instances->z);
 		// ft_printf("player x is:%i, player y is:%i\n", map->player_x, map->player_y);
-		if (map->player->instances[0].enabled == false)
-			map->player->instances[0].enabled = true;
-		else
-			map->player->instances[0].enabled = false;
+		// if (map->player->instances[0].enabled == false)
+		// 	map->player->instances[0].enabled = true;
+		// else
+		// 	map->player->instances[0].enabled = false;
 		ft_printf("number of collectables is %i\n", map->coints);
-		ft_printf("player x is:%i y is%i\n", map->player_x, map->player_y);
+		// ft_printf("player x is:%i y is%i\n", map->player_x, map->player_y);
 		if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
 		{
 			ft_printf("end\n");
@@ -125,11 +125,18 @@ int main(int argc, char *argv[])
 	}
 	ft_map_dimentions(&map, big_str);
 	map.map_data = ft_split(big_str, '\n');
+	if (map.map_data == NULL)
+	{
+		ft_free_char_array(map.map_data);
+		ft_printf("Error\n");
+		return (1);
+	}
 	// free(big_str);
 	if (ft_check_map(&map) == true)
 	{
 		free(&map);
 		return (1);
+		mlx_terminate(map.mlx);
 	}
 	ft_player_position(&map);
 	if ((flood_fill(ft_split(big_str, '\n'),&map, map.player_x, map.player_y) == 1))
@@ -138,16 +145,10 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	free(big_str);
-	if (map.map_data == NULL)
-	{
-		ft_free_char_array(map.map_data);
-		ft_printf("Error\n");
-		return (1);
-	}
 	map.mlx = mlx_init(map.width * 50, map.height * 50, "MLX42", true);
 	ft_elem_init(&map);
 	ft_drawn_map(&map);
-	ft_printf("player x is%i, player y is:%i\n", map.player_x, map.player_y);
+	// ft_printf("player x is%i, player y is:%i\n", map.player_x, map.player_y);
 	map.coints = map.collectable->count;
 	mlx_loop_hook(map.mlx, &hook, &map);
 	mlx_loop(map.mlx);
