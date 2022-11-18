@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 13:32:17 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:07:46 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void hook(void *param)
 	map = param;
 	ft_get_collectable(map);
 	if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
+	{
 		mlx_close_window(map->mlx);
+	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(map->mlx);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_Q))
@@ -80,13 +82,11 @@ void hook(void *param)
 			map->player->instances[0].enabled = true;
 		else
 			map->player->instances[0].enabled = false;
-		;
 		ft_printf("number of collectables is %i\n", map->coints);
 		ft_printf("player x is:%i y is%i\n", map->player_x, map->player_y);
 		if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
 		{
 			ft_printf("end\n");
-			ft_free_char_array(map->map_data);
 			mlx_terminate(map->mlx);
 		}
 	}

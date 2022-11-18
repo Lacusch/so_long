@@ -6,19 +6,19 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 13:34:11 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:19:04 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 
-char* ft_read_map(int fd)
+char	*ft_read_map(int fd)
 {
-	int error;
-	char *str;
-	char *buf;
-	
+	int		error;
+	char	*str;
+	char	*buf;
+
 	str = calloc (1, 1);
 	buf = malloc (100 + 1 * sizeof (char));
 	while (error > 0)
@@ -42,7 +42,7 @@ char	**ft_get_map_2(char *argv[])
 {
 	int		fd;
 	int		i;
-	char **str_array;
+	char	**str_array;
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
@@ -54,11 +54,12 @@ char	**ft_get_map_2(char *argv[])
 	return (str_array);
 }
 
-int ft_line_size (char *argv[])
+int	ft_line_size(char *argv[])
 {
 	int		fd;
 	char	*buff;
-	int char_read;
+	int		char_read;
+
 	char_read = 0;
 	buff = malloc ((BUFFER_SIZE + 1) * sizeof (char));
 	fd = open(argv[1], O_RDONLY);
@@ -71,10 +72,10 @@ int ft_line_size (char *argv[])
 	ft_printf("char read =%i\n", char_read);
 	free (buff);
 	close (fd);
-	return(char_read);
+	return (char_read);
 }
 
-char* ft_read_line(char *argv[])
+char	*ft_read_line(char *argv[])
 {
 	int		fd;
 	char	*buf;
@@ -107,10 +108,10 @@ char* ft_read_line(char *argv[])
 	return (line);
 }
 
-bool ft_check_extention(char* argv1, char *extention)
+bool	ft_check_extention(char *argv1, char *extention)
 {
-	int file_lengt;
-	int extention_lenght;
+	int	file_lengt;
+	int	extention_lenght;
 
 	file_lengt = ft_strlen(argv1);
 	extention_lenght = ft_strlen(extention);

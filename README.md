@@ -27,8 +27,8 @@ Started 2. of November
   6. ~~Different characters~~
   7. Map uncompletable
   - ~~flood_fill function~~
-  - add return to 1 / 1 to flood_fill and print error
-  - set player location sooner in the loop
+  - ~~add return to 1 / 1 to flood_fill and print error~~
+  - ~~set player location sooner in the loop~~
   - debug leaks and crashes
     + Invalid read /write at big string, debug /rewrite function
 	+ Read returns 0 if we get to the end of file !!!!!!

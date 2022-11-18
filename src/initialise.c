@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialise.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:25:32 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/14 13:09:20 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:21:05 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ void	ft_map_init(t_map *map)
 	tmp->exit = NULL;
 	tmp->player = NULL;
 }
+
 void	ft_map_dimentions(t_map *map, char *big_str)
 {
 	t_map	*tmp;
 
 	tmp = map;
-	tmp->height = ft_get_height(big_str)/ ft_get_with(big_str);
+	tmp->height = ft_get_height(big_str) / ft_get_with(big_str);
 	tmp->width = ft_get_with(big_str);
 }
+
 void	ft_elem_init(t_map *map)
 {
 	t_map	*tmp;
@@ -57,9 +59,9 @@ void	ft_elem_init(t_map *map)
 	drawn_exit(tmp->exit);
 }
 
-int ft_get_with(char* big_str)
+int	ft_get_with(char *big_str)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (big_str[size] != '\n')
@@ -67,9 +69,9 @@ int ft_get_with(char* big_str)
 	return (size);
 }
 
-int ft_get_height(char *big_str)
+int	t_get_height(char *big_str)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (big_str[size] != '\0')

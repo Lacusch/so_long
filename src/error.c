@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 13:35:03 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:23:16 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 
 bool	ft_print_map_test(char **map, int lines);
 
-bool ft_check_elem(char *big_str)
+bool	ft_check_elem(char *big_str)
 {
-	int i;
+	int	i;
+	int	player;
+	int	collectable;
+	int	exit;
 
-	int player;
-	int collectable;
-	int exit;
 	i = 0;
 	collectable = 0;
-	exit= 0;
+	exit = 0;
 	player = 0;
 	while (big_str[i])
 	{
@@ -41,7 +41,8 @@ bool ft_check_elem(char *big_str)
 		return (false);
 	return (true);
 }
-bool ft_sub_check_elem(int exit, int player, int collectable)
+
+bool	ft_sub_check_elem(int exit, int player, int collectable)
 {
 	if (exit == 0)
 		ft_printf("Error\nNo exit");
@@ -58,13 +59,14 @@ bool ft_sub_check_elem(int exit, int player, int collectable)
 	return (0);
 }
 
-bool ft_check_map(t_map *map)
+bool	ft_check_map(t_map *map)
 {
 	if (map_incorrect_wall(map) == true || map_not_recktangle(map) == true)
 		return (true);
 	return (false);
 }
-bool map_not_recktangle(t_map *map)
+
+bool	map_not_recktangle(t_map *map)
 {
 	int	i;
 
@@ -80,9 +82,10 @@ bool map_not_recktangle(t_map *map)
 	}
 	return (false);
 }
-bool map_incorrect_wall(t_map *map)
+
+bool	map_incorrect_wall(t_map *map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < map->width)
@@ -104,10 +107,8 @@ bool map_incorrect_wall(t_map *map)
 		}
 		i++;
 	}
-	
 	return (false);
 }
-
 
 void	fill(char **tab, int height, int width, int x, int y)
 {

@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 13:05:23 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:25:25 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ typedef struct s_map
 	int			coints;
 	void		*mlx;
 	mlx_image_t	*space;
-	mlx_image_t *wall;
-	mlx_image_t *collectable;
-	mlx_image_t *exit;
+	mlx_image_t	*wall;
+	mlx_image_t	*collectable;
+	mlx_image_t	*exit;
 	mlx_image_t	*player;
 }	t_map;
 
@@ -69,16 +69,16 @@ bool	map_not_recktangle(t_map *map);
 bool	map_incorrect_wall(t_map *map);
 bool	flood_fill(char **data, t_map *map, int player_x, int player_y);
 void	fill(char **tab, int height, int width, int x, int y);
-void ft_player_position(t_map *map);
-void ft_player_position_sub(t_map *map, int line);
-bool ft_map_noncompletable(char **map, int map_height);
+void	ft_player_position(t_map *map);
+void	ft_player_position_sub(t_map *map, int line);
+bool	ft_map_noncompletable(char **map, int map_height);
 
 //initialise.c
 
 void	ft_map_init(t_map *map);
 void	ft_map_dimentions(t_map *map, char *big_str);
 void	ft_elem_init(t_map *map);
-int		ft_get_with(char* big_str);
+int		ft_get_with(char *big_str);
 int		ft_get_height(char *big_str);
 
 //map.c
@@ -86,7 +86,7 @@ int		ft_get_height(char *big_str);
 void	ft_free_map(char **map, int lines);
 void	ft_print_map(char **map, int lines);
 char	**ft_get_map(char *argv[]);
-int	ft_line(char *argv[]);
+int		ft_line(char *argv[]);
 
 //characters.c
 
@@ -100,11 +100,8 @@ void	drawn_space(mlx_image_t *image);
 
 char	*ft_read_map(int fd);
 char	**ft_get_map_2(char *argv[]);
-int		ft_line_size (char *argv[]);
+int		ft_line_size(char *argv[]);
 char	*ft_read_line(char *argv[]);
-bool	ft_check_extention(char* argv1, char *extention);
-
-
-
+bool	ft_check_extention(char *argv1, char *extention);
 
 #endif
