@@ -6,13 +6,14 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 15:45:12 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:52:10 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 
+bool ft_parce_error(int argc, char**argv);
 
 void hook(void *param)
 {
@@ -95,23 +96,10 @@ int main(int argc, char *argv[])
 
 	i = 0;
 	ft_map_init(&map);
-	if (argc != 2)
-	{
-		if (argc > 2)
-			ft_printf("Error\nTo many arguments");
-		else
-			ft_printf("Error\nNot enough arguments");
-		return (1);
-	}
-	if (ft_check_extention(argv[1], ".ber") == false)
+	if (ft_parce_error(argc, argv) == true)
 		return (1);
 	big_str = ft_read_line(argv);
-	if (big_str == NULL)
-	{
-		free(big_str);
-		return (1);
-	}
-	if (ft_check_elem(big_str) == false)
+	if (big_str == NULL || ft_check_elem(big_str) == false)
 	{
 		free(big_str);
 		return (1);
@@ -146,5 +134,21 @@ int main(int argc, char *argv[])
 	mlx_loop(map.mlx);
 	mlx_terminate(map.mlx);
 	ft_free_char_array(map.map_data);
+	return (0);
+}
+
+
+bool ft_parce_error(int argc, char**argv)
+{
+	if (argc != 2)
+	{
+		if (argc > 2)
+			ft_printf("Error\nTo many arguments");
+		else
+			ft_printf("Error\nNot enough arguments");
+		return (1);
+	}
+	if (ft_check_extention(argv[1], ".ber") == false)
+		return (1);
 	return (0);
 }
