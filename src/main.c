@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:52:45 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:45:12 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,11 @@ int main(int argc, char *argv[])
 	big_str = ft_read_line(argv);
 	if (big_str == NULL)
 	{
-		// free(map);
 		free(big_str);
 		return (1);
 	}
 	if (ft_check_elem(big_str) == false)
 	{
-		// free(map);
 		free(big_str);
 		return (1);
 	}
@@ -126,16 +124,16 @@ int main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (1);
 	}
-	// free(big_str);
 	if (ft_check_map(&map) == true)
 	{
-		free(&map);
+		ft_free_char_array(map.map_data);
+		free(big_str);
 		return (1);
-		mlx_terminate(map.mlx);
 	}
 	ft_player_position(&map);
 	if ((flood_fill(ft_split(big_str, '\n'),&map, map.player_x, map.player_y) == 1))
 	{
+		ft_free_char_array(map.map_data);
 		free(big_str);
 		return (1);
 	}
@@ -143,7 +141,6 @@ int main(int argc, char *argv[])
 	map.mlx = mlx_init(map.width * 50, map.height * 50, "MLX42", true);
 	ft_elem_init(&map);
 	ft_drawn_map(&map);
-	// ft_printf("player x is%i, player y is:%i\n", map.player_x, map.player_y);
 	map.coints = map.collectable->count;
 	mlx_loop_hook(map.mlx, &hook, &map);
 	mlx_loop(map.mlx);
@@ -151,4 +148,3 @@ int main(int argc, char *argv[])
 	ft_free_char_array(map.map_data);
 	return (0);
 }
-
