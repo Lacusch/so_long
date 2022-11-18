@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:28:26 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:53:03 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,19 @@ int		get_b(int rgba);
 int		get_a(int rgba);
 
 //error.c
-
 bool	ft_check_elem(char *big_str);
 bool	ft_sub_check_elem(int exit, int player, int collectable);
 bool	ft_check_map(t_map *map);
 bool	map_not_recktangle(t_map *map);
 bool	map_incorrect_wall(t_map *map);
+
+//error2.c
+
 bool	flood_fill(char **data, t_map *map, int player_x, int player_y);
+bool	ft_completable_test(char **map, int lines);
 void	fill(char **tab, int height, int width, int x, int y);
 void	ft_player_position(t_map *map);
 void	ft_player_position_sub(t_map *map, int line);
-bool	ft_map_noncompletable(char **map, int map_height);
 
 //initialise.c
 
@@ -103,5 +105,13 @@ char	**ft_get_map_2(char *argv[]);
 int		ft_line_size(char *argv[]);
 char	*ft_read_line(char *argv[]);
 bool	ft_check_extention(char *argv1, char *extention);
+
+//utils.c
+
+void ft_drawn_line(t_map *map, int line);
+void ft_drawn_map(t_map *map);
+void ft_drawn_player(t_map *map, int line);
+void ft_get_collectable(t_map *map);
+void ft_free_char_array(char **str_str);
 
 #endif

@@ -11,12 +11,13 @@ $(NAME): $(LIBFT) $(MLX42)
 	@echo "compliling $(NAME)"
 	@gcc -o so_long src/characters.c \
 	src/colors.c \
-	src/drawn.c \
 	src/error.c \
+	src/error2.c \
 	src/initialise.c \
 	src/main.c \
 	src/map.c \
 	src/parcing.c \
+	src/utils.c \
 	libft/libft.a ./MLX42/libmlx42.a $(GLFW)
 	@echo "$(NAME) compliling done"
 $(LIBFT):
