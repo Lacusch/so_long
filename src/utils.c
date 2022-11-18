@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:52:04 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:59:17 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:19:05 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_drawn_line(t_map *map, int line)
 	{
 		if (m_data[line][j] == '0')
 		{
-			mlx_image_to_window(map->mlx, map->space,((j) * 50), ((line) * 50));
+			mlx_image_to_window(map->mlx, map->space, ((j) * 50), ((line) * 50));
 		}
 		else if (m_data[line][j] == '1')
 			mlx_image_to_window(map->mlx, map->wall, ((j) * 50), ((line) * 50));
@@ -56,7 +56,8 @@ void	ft_drawn_player(t_map *map, int line)
 	{
 		if (m_data[line][j] == 'P')
 		{
-			mlx_image_to_window(map->mlx, map->player, ((j) * 50), ((line) * 50));
+			mlx_image_to_window(map->mlx, map->player,
+				((j) * 50), ((line) * 50));
 			map->player_x = j;
 			map->player_y = line;
 		}

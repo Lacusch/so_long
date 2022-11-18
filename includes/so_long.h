@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:53:03 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:32:07 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ void	ft_elem_init(t_map *map);
 int		ft_get_with(char *big_str);
 int		ft_get_height(char *big_str);
 
+//main.c
+
+bool	ft_parce_error(int argc, char**argv);
+
 //map.c
 
 void	ft_free_map(char **map, int lines);
@@ -108,10 +112,10 @@ bool	ft_check_extention(char *argv1, char *extention);
 
 //utils.c
 
-void ft_drawn_line(t_map *map, int line);
-void ft_drawn_map(t_map *map);
-void ft_drawn_player(t_map *map, int line);
-void ft_get_collectable(t_map *map);
-void ft_free_char_array(char **str_str);
+void	ft_drawn_line(t_map *map, int line);
+void	ft_drawn_map(t_map *map);
+void	ft_drawn_player(t_map *map, int line);
+void	ft_get_collectable(t_map *map);
+void	ft_free_char_array(char **str_str);
 
 #endif

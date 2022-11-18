@@ -6,24 +6,23 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 15:54:54 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:29:15 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 
-bool ft_parce_error(int argc, char**argv);
-
-void hook(void *param)
+void	hook(void *param)
 {
-	t_map *map;
+	t_map	*map;
+
 	map = param;
 	ft_get_collectable(map);
 	if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0
 		|| mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE)
 		|| mlx_is_key_down(map->mlx, MLX_KEY_Q))
-		mlx_close_window(map->mlx);;
+		mlx_close_window(map->mlx);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_UP))
 	{
 		if (map->map_data[map->player_y - 1][map->player_x] != '1')
@@ -47,13 +46,12 @@ void hook(void *param)
 	if (mlx_is_key_down(map->mlx, MLX_KEY_LEFT))
 	{
 		if (map->map_data[map->player_y][map->player_x - 1] != '1')
-			if (map->player_x != 1)
-			{
-				map->player->instances[0].x -= MOVE;
-				map->steps++;
-				map->player_x = map->player_x - 1;
-				ft_printf("The number of stepst is:%i\n", map->steps);
-			}
+		{
+			map->player->instances[0].x -= MOVE;
+			map->steps++;
+			map->player_x = map->player_x - 1;
+			ft_printf("The number of stepst is:%i\n", map->steps);
+		}
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_RIGHT))
 	{
@@ -65,22 +63,13 @@ void hook(void *param)
 			ft_printf("The number of stepst is:%i\n", map->steps);
 		}
 	}
-	if (mlx_is_key_down(map->mlx, MLX_KEY_P))
-	{
-		ft_printf("number of collectables is %i\n", map->coints);
-		if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
-		{
-			ft_printf("end\n");
-			mlx_terminate(map->mlx);
-		}
-	}
 }
 
 int main(int argc, char *argv[])
 {
-	t_map map;
-	int i;
-	char *big_str;
+	t_map	map;
+	int		i;
+	char	*big_str;
 
 	i = 0;
 	ft_map_init(&map);
@@ -107,7 +96,7 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	ft_player_position(&map);
-	if ((flood_fill(ft_split(big_str, '\n'),&map, map.player_x, map.player_y) == 1))
+	if ((flood_fill(ft_split(big_str, '\n'), &map, map.player_x, map.player_y) == 1))
 	{
 		ft_free_char_array(map.map_data);
 		free(big_str);
@@ -125,8 +114,7 @@ int main(int argc, char *argv[])
 	return (0);
 }
 
-
-bool ft_parce_error(int argc, char**argv)
+bool	ft_parce_error(int argc, char**argv)
 {
 	if (argc != 2)
 	{
