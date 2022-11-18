@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 15:52:10 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:54:54 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,12 @@ void hook(void *param)
 	t_map *map;
 	map = param;
 	ft_get_collectable(map);
-	if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
-	{
-		mlx_close_window(map->mlx);
-	}
-	if (mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE))
-		mlx_close_window(map->mlx);
-	if (mlx_is_key_down(map->mlx, MLX_KEY_Q))
-		mlx_close_window(map->mlx);
+	if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0
+		|| mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE)
+		|| mlx_is_key_down(map->mlx, MLX_KEY_Q))
+		mlx_close_window(map->mlx);;
 	if (mlx_is_key_down(map->mlx, MLX_KEY_UP))
 	{
-
 		if (map->map_data[map->player_y - 1][map->player_x] != '1')
 		{
 			map->player->instances[0].y -= MOVE;
@@ -72,14 +67,7 @@ void hook(void *param)
 	}
 	if (mlx_is_key_down(map->mlx, MLX_KEY_P))
 	{
-		// ft_printf("\nZ data is:%i\n", map->player->instances->z);
-		// ft_printf("player x is:%i, player y is:%i\n", map->player_x, map->player_y);
-		// if (map->player->instances[0].enabled == false)
-		// 	map->player->instances[0].enabled = true;
-		// else
-		// 	map->player->instances[0].enabled = false;
 		ft_printf("number of collectables is %i\n", map->coints);
-		// ft_printf("player x is:%i y is%i\n", map->player_x, map->player_y);
 		if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
 		{
 			ft_printf("end\n");
