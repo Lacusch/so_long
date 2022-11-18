@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/17 17:46:31 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:05:23 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,11 @@ bool	ft_sub_check_elem(int exit, int player, int collectable);
 bool	ft_check_map(t_map *map);
 bool	map_not_recktangle(t_map *map);
 bool	map_incorrect_wall(t_map *map);
-void	flood_fill(t_map *map, int player_x, int player_y);
+bool	flood_fill(char **data, t_map *map, int player_x, int player_y);
 void	fill(char **tab, int height, int width, int x, int y);
+void ft_player_position(t_map *map);
+void ft_player_position_sub(t_map *map, int line);
+bool ft_map_noncompletable(char **map, int map_height);
 
 //initialise.c
 
