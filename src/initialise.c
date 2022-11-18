@@ -6,7 +6,7 @@
 /*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:25:32 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:21:05 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:28:07 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_get_with(char *big_str)
 	return (size);
 }
 
-int	t_get_height(char *big_str)
+int	ft_get_height(char *big_str)
 {
 	int	size;
 
