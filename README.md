@@ -25,7 +25,7 @@ Started 2. of November
   4. ~~Check wall~~
   5. ~~Empy map~~
   6. ~~Different characters~~
-  7. Map uncompletable
+  7. ~~Map uncompletable~~
   - ~~flood_fill function~~
   - ~~add return to 1 / 1 to flood_fill and print error~~
   - ~~set player location sooner in the loop~~
@@ -33,5 +33,7 @@ Started 2. of November
     + Invalid read /write at big string, debug /rewrite function
 	+ Read returns 0 if we get to the end of file !!!!!!
     + free the malloc with 0 size then free the split
-- Check for leaks and smooth movements
+  8. Handle big maps ???
+  9. reduce function size + use less than 3 variables
+- ~~Check for leaks and smooth movements~~
 - ~~Sometimes it randomly crashes !!!~~
