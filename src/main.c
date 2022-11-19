@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:42:53 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:47:33 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	hook(void *param)
 	}
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	t_map	map;
 	int		i;
@@ -98,7 +98,6 @@ int main(int argc, char *argv[])
 		ft_free_char_array(map.map_data);
 		free(map.map_data);
 		free(big_str);
-
 		return (1);
 	}
 	ft_player_position(&map);
@@ -110,9 +109,6 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	free(big_str);
-/* 	ft_free_char_array(map.map_data);
-	free(map.map_data);
-	return (0); */
 	map.mlx = mlx_init(map.width * 50, map.height * 50, "MLX42", true);
 	ft_elem_init(&map);
 	ft_drawn_map(&map);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
+/*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 16:32:07 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:45:57 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "../MLX42/include/MLX42/MLX42.h"
 // Defines:
 
+# define IMAC_RES_Y 1344
+# define IMAC_RES_X 2560
 # define WIDTH 500
 # define HEIGHT 500
 # define MOVE 50
