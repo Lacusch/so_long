@@ -16,6 +16,7 @@ $(NAME): $(LIBFT) $(MLX42)
 	src/initialise.c \
 	src/main.c \
 	src/map.c \
+	src/move.c \
 	src/parcing.c \
 	src/utils.c \
 	libft/libft.a ./MLX42/libmlx42.a $(GLFW)

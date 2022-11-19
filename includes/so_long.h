@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:45:57 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:19:42 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,13 @@ void	ft_free_map(char **map, int lines);
 void	ft_print_map(char **map, int lines);
 char	**ft_get_map(char *argv[]);
 int		ft_line(char *argv[]);
+
+//move.c
+
+void ft_move_up(t_map* map);
+void ft_move_down(t_map* map);
+void ft_move_left(t_map* map);
+void ft_move_right(t_map* map);
 
 //characters.c
 

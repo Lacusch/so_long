@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:09:21 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:20:58 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,13 @@ void	hook(void *param)
 		|| mlx_is_key_down(map->mlx, MLX_KEY_Q))
 		mlx_close_window(map->mlx);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_UP))
-	{
-		if (map->map_data[map->player_y - 1][map->player_x] != '1')
-		{
-			map->player->instances[0].y -= MOVE;
-			map->steps++;
-			map->player_y = map->player_y - 1;
-			ft_printf("The number of stepst is:%i\n", map->steps);
-		}
-	}
+		ft_move_up(map);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_DOWN))
-	{
-		if (map->map_data[map->player_y + 1][map->player_x] != '1')
-		{
-			map->player->instances[0].y += MOVE;
-			map->steps++;
-			map->player_y = map->player_y + 1;
-			ft_printf("The number of stepst is:%i\n", map->steps);
-		}
-	}
+		ft_move_down(map);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_LEFT))
-	{
-		if (map->map_data[map->player_y][map->player_x - 1] != '1')
-		{
-			map->player->instances[0].x -= MOVE;
-			map->steps++;
-			map->player_x = map->player_x - 1;
-			ft_printf("The number of stepst is:%i\n", map->steps);
-		}
-	}
+		ft_move_left(map);
 	if (mlx_is_key_down(map->mlx, MLX_KEY_RIGHT))
-	{
-		if (map->map_data[map->player_y][map->player_x + 1] != '1')
-		{
-			map->player->instances[0].x += MOVE;
-			map->steps++;
-			map->player_x = map->player_x + 1;
-			ft_printf("The number of stepst is:%i\n", map->steps);
-		}
-	}
+		ft_move_right(map);
 }
 
 int	main(int argc, char *argv[])
