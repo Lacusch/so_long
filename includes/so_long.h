@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:36:24 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:54:31 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ int		ft_get_height(char *big_str);
 bool	ft_parce_error(int argc, char**argv);
 int		ft_big_fre(char **str_str, char *str, int ret);
 bool	ft_is_empty(char **argv);
+bool	ft_map_correct(char **argv, t_map *map);
+
 //map.c
 
 void	ft_free_map(char **map, int lines);
