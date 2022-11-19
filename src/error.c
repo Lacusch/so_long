@@ -6,13 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:58:57 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:28:40 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../MLX42/include/MLX42/MLX42.h"
-#include "../libft/libft.h"
 
 bool	ft_check_elem(char *big_str)
 {

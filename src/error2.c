@@ -6,13 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:43:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:25:59 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:28:44 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../MLX42/include/MLX42/MLX42.h"
-#include "../libft/libft.h"
 
 void	fill(char **tab, t_map *map, int x, int y)
 {

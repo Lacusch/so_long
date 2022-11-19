@@ -6,12 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 13:27:07 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:28:23 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../libft/libft.h"
 #include <stdlib.h>
 
 int	main(int argc, char *argv[])

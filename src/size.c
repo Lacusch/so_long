@@ -6,12 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:26:01 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 13:27:10 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:29:11 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../libft/libft.h"
 
 bool	ft_map_to_big(int x, int y)
 {

@@ -6,13 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:52:04 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:39:51 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:29:17 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../MLX42/include/MLX42/MLX42.h"
-#include "../libft/libft.h"
 
 void	ft_drawn_line(t_map *map, int line)
 {

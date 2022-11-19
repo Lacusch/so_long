@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   characters.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 12:46:38 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/11 10:25:54 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:28:28 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../libft/libft.h"
 
 /*
  The map can be composed of only these 5 characters:

@@ -6,12 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:56:41 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:56:54 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:28:47 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../libft/libft.h"
 
 void	hook(void *param)
 {

@@ -6,12 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:15:06 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:21:50 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:29:04 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include "../libft/libft.h"
 
 void	ft_move_up(t_map *map)
 {
