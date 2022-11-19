@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
+/*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 16:29:15 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 10:09:05 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int main(int argc, char *argv[])
 	if ((flood_fill(ft_split(big_str, '\n'), &map, map.player_x, map.player_y) == 1))
 	{
 		ft_free_char_array(map.map_data);
+		free(map.map_data);
 		free(big_str);
 		return (1);
 	}
@@ -111,6 +112,7 @@ int main(int argc, char *argv[])
 	mlx_loop(map.mlx);
 	mlx_terminate(map.mlx);
 	ft_free_char_array(map.map_data);
+	free(map.map_data);
 	return (0);
 }
 
