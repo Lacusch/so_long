@@ -6,13 +6,15 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:47:33 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:09:21 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 #include <stdlib.h>
+
+int	ft_big_fre(char **str_str, char *str, int ret);
 
 void	hook(void *param)
 {
@@ -75,40 +77,22 @@ int	main(int argc, char *argv[])
 	i = 0;
 	ft_map_init(&map);
 	if (ft_parce_error(argc, argv) == true)
-	{
 		return (1);
-	}
 	big_str = ft_read_line(argv);
 	if (big_str == NULL || ft_check_elem(big_str) == false)
-	{
-		free(big_str);
-		return (1);
-	}
+		return (ft_big_fre(NULL, big_str, 1));
 	ft_map_dimentions(&map, big_str);
 	map.map_data = ft_split(big_str, '\n');
 	if (map.map_data == NULL)
 	{
-		ft_free_char_array(map.map_data);
-		free(map.map_data);
 		ft_printf("Error\n");
-		return (1);
+		return (ft_big_fre(NULL, big_str, 1));
 	}
 	if (ft_check_map(&map) == true)
-	{
-		ft_free_char_array(map.map_data);
-		free(map.map_data);
-		free(big_str);
-		return (1);
-	}
+		return (ft_big_fre(map.map_data, big_str, 1));
 	ft_player_position(&map);
 	if ((flood_fill(ft_split(big_str, '\n'), &map, map.player_x, map.player_y) == 1))
-	{
-		ft_free_char_array(map.map_data);
-		free(map.map_data);
-		free(big_str);
-		return (1);
-	}
-	free(big_str);
+		return (ft_big_fre(map.map_data, big_str, 1));
 	map.mlx = mlx_init(map.width * 50, map.height * 50, "MLX42", true);
 	ft_elem_init(&map);
 	ft_drawn_map(&map);
@@ -116,8 +100,7 @@ int	main(int argc, char *argv[])
 	mlx_loop_hook(map.mlx, &hook, &map);
 	mlx_loop(map.mlx);
 	mlx_terminate(map.mlx);
-	ft_free_char_array(map.map_data);
-	free(map.map_data);
+	ft_big_fre(map.map_data, big_str, 0);
 	return (0);
 }
 
@@ -134,4 +117,16 @@ bool	ft_parce_error(int argc, char**argv)
 	if (ft_check_extention(argv[1], ".ber") == false)
 		return (1);
 	return (0);
+}
+
+int	ft_big_fre(char **str_str, char *str, int ret)
+{
+	if (str_str != NULL)
+	{
+		ft_free_char_array(str_str);
+		free(str_str);
+	}
+	if (str != NULL)
+		free(str);
+	return (ret);
 }
