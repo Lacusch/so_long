@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parcing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
+/*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:19:04 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 10:51:28 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ char	*ft_read_line(char *argv[])
 	{
 		ft_printf("Error\nEmpy map");
 		free(buf);
+		free(line);
 		return (NULL);
 	}
 	while (buflen > 0)

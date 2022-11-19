@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:43:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:10:30 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 10:37:02 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ bool	flood_fill(char **data, t_map *map, int player_x, int player_y)
 	fill(data, map->height, map->width, player_x, player_y);
 	if (ft_completable_test(data, map->height) == true)
 	{
+		ft_free_char_array(data);
+		free(data);
 		return (true);
-		ft_free_map(data, map->height);
 	}
 	ft_free_char_array(data);
 	free (data);
