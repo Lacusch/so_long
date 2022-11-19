@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:58:17 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:27:07 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int argc, char *argv[])
 	if (ft_parce_error(argc, argv) == true || ft_is_empty(argv) == true)
 		return (1);
 	if (ft_map_correct(argv, &map) == true)
+		return (1);
+	if (ft_map_to_big(map.width * 50, map.height * 50) == true)
 		return (1);
 	map.mlx = mlx_init(map.width * 50, map.height * 50, "MLX42", true);
 	ft_elem_init(&map);

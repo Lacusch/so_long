@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:57:35 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:26:18 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,10 @@ char	**ft_get_map_2(char *argv[]);
 int		ft_line_size(char *argv[]);
 char	*ft_read_line(char *argv[]);
 bool	ft_check_extention(char *argv1, char *extention);
+
+//size.c
+
+bool	ft_map_to_big(int x, int y);
 
 //utils.c
 
