@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slaszlo- <coder@slaszlo-@student.42heib    +#+  +:+       +#+        */
+/*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/18 14:50:38 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:25:12 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ bool	map_not_recktangle(t_map *map)
 	i = 0;
 	while (map->map_data[i])
 	{
-		if (ft_strlen(map->map_data[i]) != map->width)
+		if ((int)ft_strlen(map->map_data[i]) != map->width)
 		{
 			ft_printf("Error\nNot recktengle");
 			return (true);

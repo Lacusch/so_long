@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:52:04 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:07:42 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:29:36 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void	ft_get_collectable(t_map *map)
 
 void	ft_free_char_array(char **str_str)
 {
-	int	i;
 
 	while (*str_str)
 	{

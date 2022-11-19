@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:51:28 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:29:18 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	*ft_read_map(int fd)
 	char	*str;
 	char	*buf;
 
+	error = 1;
 	str = calloc (1, 1);
 	buf = malloc (100 + 1 * sizeof (char));
 	while (error > 0)
@@ -41,16 +42,16 @@ char	*ft_read_map(int fd)
 char	**ft_get_map_2(char *argv[])
 {
 	int		fd;
-	int		i;
 	char	**str_array;
 
+	str_array = NULL;
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		ft_printf("the file desriptor is:%i\n", fd);
 		return (NULL);
 	}
-	ft_split((const char *)ft_read_map(fd), '\n');
+	str_array = ft_split((const char *)ft_read_map(fd), '\n');
 	return (str_array);
 }
 

@@ -6,12 +6,13 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:05:05 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:42:53 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
+#include <stdlib.h>
 
 void	hook(void *param)
 {
@@ -19,7 +20,7 @@ void	hook(void *param)
 
 	map = param;
 	ft_get_collectable(map);
-	if (map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0
+	if ((map->map_data[map->player_y][map->player_x] == 'E' && map->coints == 0)
 		|| mlx_is_key_down(map->mlx, MLX_KEY_ESCAPE)
 		|| mlx_is_key_down(map->mlx, MLX_KEY_Q))
 		mlx_close_window(map->mlx);
@@ -74,7 +75,9 @@ int main(int argc, char *argv[])
 	i = 0;
 	ft_map_init(&map);
 	if (ft_parce_error(argc, argv) == true)
+	{
 		return (1);
+	}
 	big_str = ft_read_line(argv);
 	if (big_str == NULL || ft_check_elem(big_str) == false)
 	{
@@ -95,6 +98,7 @@ int main(int argc, char *argv[])
 		ft_free_char_array(map.map_data);
 		free(map.map_data);
 		free(big_str);
+
 		return (1);
 	}
 	ft_player_position(&map);
@@ -118,7 +122,6 @@ int main(int argc, char *argv[])
 	mlx_terminate(map.mlx);
 	ft_free_char_array(map.map_data);
 	free(map.map_data);
-	leaks.out
 	return (0);
 }
 

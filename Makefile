@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra - Werror -d
+CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
 LIBFT = libft/libft.a
 MLX42 = MLX42/libmlx42.a
@@ -9,7 +9,7 @@ all: $(NAME)
 	
 $(NAME): $(LIBFT) $(MLX42)
 	@echo "compliling $(NAME)"
-	@gcc -o so_long src/characters.c \
+	@$(CC) $(CFLAGS) -o so_long src/characters.c \
 	src/colors.c \
 	src/error.c \
 	src/error2.c \
