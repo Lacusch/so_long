@@ -4,10 +4,10 @@ NAME = so_long
 LIBFT = lib/libft/libft.a
 MLX42 = lib/MLX42/libmlx42.a
 GLFW3 = ./lib/MLX42/glfw_lib/libglfw3.a
-
+SUBMODULE = submodule
 all: $(NAME)
 	
-$(NAME): $(GLFW3) $(LIBFT) $(MLX42)
+$(NAME): $(SUBMODULE) $(GLFW3) $(LIBFT) $(MLX42)
 	@echo "compliling $(NAME)"
 	@$(CC) $(CFLAGS) -o so_long src/characters.c \
 	src/colors.c \
@@ -23,11 +23,12 @@ $(NAME): $(GLFW3) $(LIBFT) $(MLX42)
 	src/utils.c \
 	lib/libft/libft.a lib/MLX42/libmlx42.a $(GLFW3) -framework Cocoa -framework OpenGL -framework IOKit
 	@echo "$(NAME) compliling done"
-$(LIBFT):
+$(SUBMODULE):
 	git submodule update --init --recursive --remote
+	git submodule update --init --recursive --remote
+$(LIBFT):
 	make -C ./lib/libft/
 $(MLX42):
-	git submodule update --init --recursive --remote
 	make -C ./lib/MLX42
 $(GLFW3):
 	@if [ -d ./lib/MLX42/glfw_lib ]; \
