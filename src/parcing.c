@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:01:14 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 11:29:18 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:35:47 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,6 @@ char	*ft_read_line(char *argv[])
 	line = ft_calloc(1, 1);
 	buf = malloc(30 + 1 * sizeof(char));
 	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-	{
-		ft_printf("Error\nEmpy map");
-		free(buf);
-		free(line);
-		return (NULL);
-	}
 	while (buflen > 0)
 	{
 		buflen = read(fd, buf, 30);

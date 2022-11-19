@@ -6,15 +6,13 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:20:58 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:36:40 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include "../libft/libft.h"
 #include <stdlib.h>
-
-int	ft_big_fre(char **str_str, char *str, int ret);
 
 void	hook(void *param)
 {
@@ -44,7 +42,7 @@ int	main(int argc, char *argv[])
 
 	i = 0;
 	ft_map_init(&map);
-	if (ft_parce_error(argc, argv) == true)
+	if (ft_parce_error(argc, argv) == true || ft_is_empty(argv) == true)
 		return (1);
 	big_str = ft_read_line(argv);
 	if (big_str == NULL || ft_check_elem(big_str) == false)
@@ -97,4 +95,18 @@ int	ft_big_fre(char **str_str, char *str, int ret)
 	if (str != NULL)
 		free(str);
 	return (ret);
+}
+
+bool	ft_is_empty(char **argv)
+{
+	int	fd;
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		ft_printf("Error\nEmpy map");
+		return (1);
+	}
+	close(fd);
+	return (0);
 }
