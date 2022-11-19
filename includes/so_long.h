@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 13:30:06 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 14:34:04 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define SO_LONG_H
 
 # include <fcntl.h>
-# include "../MLX42/include/MLX42/MLX42.h"
-# include "../libft/libft.h"
+# include "../lib/MLX42/include/MLX42/MLX42.h"
+# include "../lib/libft/libft.h"
 // Defines:
 
 # define IMAC_RES_Y 1344

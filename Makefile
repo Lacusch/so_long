@@ -1,8 +1,8 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long
-LIBFT = libft/libft.a
-MLX42 = MLX42/libmlx42.a
+LIBFT = lib/libft/libft.a
+MLX42 = lib/MLX42/libmlx42.a
 GLFW = -lglfw -L "/Users/slaszlo-/.brew/opt/glfw/lib/"
 
 all: $(NAME)
@@ -21,7 +21,7 @@ $(NAME): $(LIBFT) $(MLX42)
 	src/parcing.c \
 	src/size.c \
 	src/utils.c \
-	libft/libft.a ./MLX42/libmlx42.a $(GLFW)
+	lib/libft/libft.a lib/MLX42/libmlx42.a $(GLFW)
 	@echo "$(NAME) compliling done"
 $(LIBFT):
 	git submodule update --init --recursive --remote
