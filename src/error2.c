@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:43:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 10:37:02 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:25:59 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 #include "../MLX42/include/MLX42/MLX42.h"
 #include "../libft/libft.h"
 
-void	fill(char **tab, int height, int width, int x, int y)
+void	fill(char **tab, t_map *map, int x, int y)
 {
-	if (y < 0 || y >= height || x < 0 || x >= width)
+	if (y < 0 || y >= map->height || x < 0 || x >= map->width)
 		return ;
 	if (tab[y][x] != '0' && tab[y][x] != 'C'
 	&& tab[y][x] != 'P' && tab[y][x] != 'E')
 		return ;
 	tab[y][x] = 'F';
-	fill(tab, height, width, x + 1, y);
-	fill(tab, height, width, x - 1, y);
-	fill(tab, height, width, x, y + 1);
-	fill(tab, height, width, x, y - 1);
+	fill(tab, map, x + 1, y);
+	fill(tab, map, x - 1, y);
+	fill(tab, map, x, y + 1);
+	fill(tab, map, x, y - 1);
 }
 
 bool	flood_fill(char **data, t_map *map, int player_x, int player_y)
 {
-	fill(data, map->height, map->width, player_x, player_y);
+	fill(data, map, player_x, player_y);
 	if (ft_completable_test(data, map->height) == true)
 	{
 		ft_free_char_array(data);

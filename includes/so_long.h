@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:19:42 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:26:10 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ bool	map_incorrect_wall(t_map *map);
 
 bool	flood_fill(char **data, t_map *map, int player_x, int player_y);
 bool	ft_completable_test(char **map, int lines);
-void	fill(char **tab, int height, int width, int x, int y);
+void	fill(char **tab, t_map *map, int x, int y);
 void	ft_player_position(t_map *map);
 void	ft_player_position_sub(t_map *map, int line);
 
@@ -98,10 +98,10 @@ int		ft_line(char *argv[]);
 
 //move.c
 
-void ft_move_up(t_map* map);
-void ft_move_down(t_map* map);
-void ft_move_left(t_map* map);
-void ft_move_right(t_map* map);
+void	ft_move_up(t_map *map);
+void	ft_move_down(t_map *map);
+void	ft_move_left(t_map *map);
+void	ft_move_right(t_map *map);
 
 //characters.c
 
