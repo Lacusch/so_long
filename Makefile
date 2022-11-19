@@ -38,7 +38,7 @@ $(GLFW3):
     rm glfw-3.3.8.bin.MACOS.zip && \
 	mv glfw-3.3.8.bin.MACOS/lib-universal glfw-3.3.8.bin.MACOS/glfw_lib && \
 	mv glfw-3.3.8.bin.MACOS/glfw_lib ./lib/MLX42/ && \
-	mv glfw-3.3.8.bin.MACOS/include/GLFW lib/MLX42/include/GLFW && \
+	mv glfw-3.3.8.bin.MACOS/include/GLFW lib/MLX42/include && \
 	rm -rf glfw-3.3.8.bin.MACOS && \
 	echo "doesn't exists"; \
 	fi
