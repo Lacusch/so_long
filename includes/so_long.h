@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 12:54:31 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:57:35 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,10 @@ bool	ft_completable_test(char **map, int lines);
 void	fill(char **tab, t_map *map, int x, int y);
 void	ft_player_position(t_map *map);
 void	ft_player_position_sub(t_map *map, int line);
+
+//hook.c
+
+void	hook(void *param);
 
 //initialise.c
 

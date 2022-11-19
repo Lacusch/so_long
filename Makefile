@@ -13,6 +13,7 @@ $(NAME): $(LIBFT) $(MLX42)
 	src/colors.c \
 	src/error.c \
 	src/error2.c \
+	src/hook.c \
 	src/initialise.c \
 	src/main.c \
 	src/map.c \
