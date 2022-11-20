@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 10:25:32 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 13:28:51 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/20 10:51:45 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	ft_map_dimentions(t_map *map, char *big_str)
 	t_map	*tmp;
 
 	tmp = map;
-	tmp->height = ft_get_height(big_str) / ft_get_with(big_str);
 	tmp->width = ft_get_with(big_str);
+	tmp->height = ft_get_height(big_str) / ft_get_with(big_str);
 }
 
 void	ft_elem_init(t_map *map)
@@ -71,11 +71,15 @@ int	ft_get_with(char *big_str)
 int	ft_get_height(char *big_str)
 {
 	int	size;
+	int i;
 
+	i = 0;
 	size = 0;
-	while (big_str[size] != '\0')
+	while (big_str[i] != '\0')
 	{
-		size++;
+		if (big_str[i] != '\n')
+			size++;
+		i++;
 	}
 	return (size);
 }

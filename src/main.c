@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 17:38:50 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/20 10:53:44 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ bool	ft_map_correct(char **argv, t_map *map)
 		ft_printf("Error\n");
 		return (ft_big_fre(NULL, big_str, 1));
 	}
-	//CRASH HERE ON SMALLER MAPS map 123.ber and 456.ber
 	if (ft_check_map(map) == true)
 		return (ft_big_fre(map->map_data, big_str, 1));
 	ft_player_position(map);
