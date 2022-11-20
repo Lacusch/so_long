@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:52:04 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 13:29:17 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/20 12:05:51 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ void	ft_drawn_line(t_map *map, int line)
 	t_map	*tmp_map;
 
 	tmp_map = map;
-	m_data = map->map_data;
+	m_data = tmp_map->map_data;
 	j = 0;
 	while (m_data[line][j] != '\0')
 	{
 		if (m_data[line][j] == '0')
-			mlx_image_to_window(map->mlx, map->space, (j * 50), (line * 50));
+			mlx_image_to_window(tmp_map->mlx, tmp_map->space, (j * 50), (line * 50));
 		else if (m_data[line][j] == '1')
-			mlx_image_to_window(map->mlx, map->wall, (j * 50), (line * 50));
+			mlx_image_to_window(tmp_map->mlx, tmp_map->wall, (j * 50), (line * 50));
 		else if (m_data[line][j] == 'C')
 		{
-			mlx_image_to_window(map->mlx, map->space, (j * 50), ((line) * 50));
-			mlx_image_to_window(map->mlx, map->collectable, j * 50, line * 50);
+			mlx_image_to_window(tmp_map->mlx, tmp_map->space, (j * 50), ((line) * 50));
+			mlx_image_to_window(tmp_map->mlx, tmp_map->collectable, j * 50, line * 50);
 		}
 		else if (m_data[line][j] == 'P')
-			mlx_image_to_window(map->mlx, map->space, (j * 50), (line * 50));
+			mlx_image_to_window(tmp_map->mlx, tmp_map->space, (j * 50), (line * 50));
 		else if (m_data[line][j] == 'E')
-			mlx_image_to_window(map->mlx, map->exit, (j * 50), (line * 50));
+			mlx_image_to_window(tmp_map->mlx, tmp_map->exit, (j * 50), (line * 50));
 		j++;
 	}
 }

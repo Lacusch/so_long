@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:43:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 13:28:44 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/20 12:04:44 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ bool	ft_completable_test(char **map, int lines)
 	j = 0;
 	while (i < lines)
 	{
-		while (map[i][j] != '\0')
+		while (tmp[i][j] != '\0')
 		{
-			if (map[i][j] == 'C' || map[i][j] == 'P' || map[i][j] == 'E')
+			if (tmp[i][j] == 'C' || tmp[i][j] == 'P' || tmp[i][j] == 'E')
 			{
 				ft_printf("Error\nmap incompletable");
 				return (true);

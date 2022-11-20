@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 12:46:38 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 13:28:28 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/20 12:04:11 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	drawn_block(mlx_image_t *image)
 		x = 0;
 		while (x < 50)
 		{
-			mlx_put_pixel(image, x, y, get_rgba(0, 0, 0, 255));
+			mlx_put_pixel(tmp, x, y, get_rgba(0, 0, 0, 255));
 			x++;
 		}
 		y++;
@@ -64,7 +64,7 @@ void	drawn_player(mlx_image_t *image)
 		x = 0;
 		while (x < 25)
 		{
-			mlx_put_pixel(image, x, y, 0x7f11e0);
+			mlx_put_pixel(tmp, x, y, 0x7f11e0);
 			x++;
 		}
 		y++;
@@ -80,7 +80,7 @@ void	drawn_coin(mlx_image_t *image)
 	x = 0;
 	y = 0;
 	tmp = image;
-	ft_memset(image->pixels, 255, 50 * 50 *(sizeof(int)));
+	ft_memset(tmp->pixels, 255, 50 * 50 *(sizeof(int)));
 	while (y < 25)
 	{
 		x = 0;
@@ -102,13 +102,13 @@ void	drawn_exit(mlx_image_t *image)
 	x = 0;
 	y = 0;
 	tmp = image;
-	ft_memset(image->pixels, 255, 50 * 50 *(sizeof(int)));
+	ft_memset(tmp->pixels, 255, 50 * 50 *(sizeof(int)));
 	while (y < 25)
 	{
 		x = 0;
 		while (x < 25)
 		{
-			mlx_put_pixel(image, x, y, get_rgba(255, 0, 0, 255));
+			mlx_put_pixel(tmp, x, y, get_rgba(255, 0, 0, 255));
 			x++;
 		}
 		y++;
@@ -124,13 +124,13 @@ void	drawn_space(mlx_image_t *image)
 	x = 0;
 	y = 0;
 	tmp = image;
-	ft_memset(image->pixels, 255, 50 * 50 *(sizeof(int)));
+	ft_memset(tmp->pixels, 255, 50 * 50 *(sizeof(int)));
 	while (y < 50)
 	{
 		x = 0;
 		while (x < 50)
 		{
-			mlx_put_pixel(image, x, y, 255);
+			mlx_put_pixel(tmp, x, y, 255);
 			x++;
 		}
 		y++;

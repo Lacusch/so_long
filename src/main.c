@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/20 10:53:44 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/20 12:06:06 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 int	main(int argc, char *argv[])
 {
 	t_map	map;
-	int		i;
 
-	i = 0;
 	ft_map_init(&map);
 	if (ft_parce_error(argc, argv) == true || ft_is_empty(argv) == true)
 		return (1);
