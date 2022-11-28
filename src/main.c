@@ -6,12 +6,11 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 14:06:57 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/20 10:53:44 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/28 11:38:08 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdlib.h>
 
 int	main(int argc, char *argv[])
 {

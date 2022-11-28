@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:56:31 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/20 10:53:30 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/28 11:41:29 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ bool	map_incorrect_wall(t_map *map)
 	i = 0;
 	while (i < map->width)
 	{
-		if (map->map_data[0][i] != '1' || map->map_data[map->height - 1][i] != '1')
+		if (map->map_data[0][i] != '1' ||
+			map->map_data[map->height - 1][i] != '1')
 		{
 			ft_printf("Error\nIncorrect Wall");
 			return (true);

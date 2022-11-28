@@ -6,22 +6,23 @@
 /*   By: slaszlo- <slaszlo-@student.42heibronn.d    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 13:10:40 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/11/19 14:34:04 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/11/28 11:46:00 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <fcntl.h>
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "../lib/libft/libft.h"
+
+//For open/close
+# include <fcntl.h>
+
 // Defines:
 
 # define IMAC_RES_Y 1344
 # define IMAC_RES_X 2560
-# define WIDTH 500
-# define HEIGHT 500
 # define MOVE 50
 
 // Structs

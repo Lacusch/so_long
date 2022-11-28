@@ -48,9 +48,9 @@ fclean: clean
 	make fclean -C  ./lib/MLX42
 	rm -rf lib/MLX42/glfw_lib/ lib/MLX42/include/GLFW/
 
-t:
+t: $(NAME)
 	 ./$(NAME) map/map.ber
-t2:
+t2: $(NAME)
 	./$(NAME) map/big_map.ber
 re: fclean all
 tre: tclean $(NAME)
